@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,4 +28,19 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.bg-button{
+  background: linear-gradient(to right, #F76969, #F996DE);
+}
+.bg-wish{
+  background: linear-gradient(to right, #f86184, #f19dd9);
+}
+.bg-booked{
+  background: linear-gradient(to right, #17cb6b, #55dbed);
+}
+
+.border-custom{
+  border-image: linear-gradient(45deg, #F76969, #F996DE) 1;
+
 }
