@@ -64,21 +64,21 @@ const CreateWishList:FC<Params> = ({params}) => {
     <div className='w-auto h-auto  flex flex-col relative  bottom-14'>
     <div className='w-80 h-auto flex justify-end m-5  '>
         <Link href={`/home/${params.uid}`}>
-            <button className='w-6 h-6 bg-button rounded-full text-center text-white text-sm font-medium '>x</button>
+            <button className='w-6 h-6 bg-black rounded-full text-center text-white text-sm font-medium '>x</button>
         </Link>
 
     </div>
    
-    <div className='w-80 h-80    border border-pink-500 shadow-2xl rounded-xl flex flex-col items-center justify-between p-3'>
+    <div className='w-80 h-80    border shadow-2xl rounded-xl flex flex-col items-center justify-between p-3'>
         <div className='w-full h-10 flex items-center'>
-            <div className='w-7 h-7 bg-button rounded flex items-center justify-center'>
+            <div className='w-7 h-7 bg-yellow rounded flex items-center justify-center'>
                 <p className='text-sm  text-white'>W</p>
             </div>
             <h2 className='text-md pl-2 '>New Wish List</h2>
         </div>
-        <input value={wishListData.title} onChange={inputChange} name='title' id='title' placeholder='Write your title'  className='w-full h-10  border border-pink-500 rounded outline-none  resize-none p-2 ' />
-        <textarea  value={wishListData.description} onChange={inputChange} name='description' placeholder='Write your description'  className='w-full h-28 rounded border-custom  outline-none border resize-none p-2 ' />
-        <button onClick={addWishList} className='w-full  h-10 bg-button rounded-md mt-3'>
+        <input value={wishListData.title} onChange={inputChange} name='title' id='title' placeholder='Write your title'  className='w-full h-10  border  rounded outline-none  resize-none p-2 ' />
+        <textarea  value={wishListData.description} onChange={inputChange} name='description' placeholder='Write your description'  className='w-full h-28 rounded  outline-none border resize-none p-2 ' />
+        <button onClick={addWishList} className='w-full  h-10 bg-yellow rounded-md mt-3'>
             <p className='text-md font-medium text-white'>Add WishList</p>
         </button>
     </div>

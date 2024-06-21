@@ -2,6 +2,7 @@
 import React from 'react'
 import { useRouter } from 'next/navigation';
 import {auth} from '../firebase/config'
+import Cookies from 'js-cookie';
 
 const SignOut = () => {
     const router = useRouter()
@@ -10,6 +11,7 @@ const SignOut = () => {
         try {
             await auth.signOut();
             router.push('/')
+            Cookies.remove('dealer')
     
       
         } catch (error) {
@@ -19,9 +21,9 @@ const SignOut = () => {
       
       }
   return (
-    <div className='w-full h-auto mt-5'>
-        <button  onClick={signOut} className='w-24 h-9 bg-button rounded '>
-            <p className='text-sm text-white font-medium'>Sign out</p>
+    <div className='w-full h-auto  mb-3 '>
+        <button  onClick={signOut} className='w-full h-11 bg-yellow rounded flex items-center justify-center '>
+            <p className='text-md text-white font-medium'>Sign out</p>
         </button>
     </div>
   )

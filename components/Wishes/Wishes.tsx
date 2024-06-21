@@ -32,7 +32,7 @@ const Wishes:FC<Params> =  ({params}) => {
 
 
   return (
-    <div className='w-full bg-red-100 min-h-screen p-12 pt-8'>
+    <div className='w-full  h-full p-8 '>
       {loading ? (
         <div className='w-full min-h-screen flex items-center justify-center'>
             <img className="w-60 h-60 animate-spin mb-32" src="https://cdn-icons-png.flaticon.com/512/6175/6175867.png"alt="" />

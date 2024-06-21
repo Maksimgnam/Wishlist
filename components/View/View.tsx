@@ -2,8 +2,9 @@
 import React, { FC, useState, useEffect } from 'react'
 import { Params, viewWishListData } from '@/interfaces';
 import ViewWishCard from './ViewWishCard';
+import { ViewParams } from '@/interfaces';
 
-const View:FC<Params> = ({params}) => {
+const View:FC<ViewParams> = ({params}) => {
     const [viewWishes, setViewWishes] = useState<viewWishListData | null>(null)
     const [loading, setLoading] = useState<boolean>(true);
     useEffect(()=>{
@@ -26,8 +27,11 @@ const View:FC<Params> = ({params}) => {
         fetchViewWishes()
     
       }, [])
+
+   
+      
   return (
-    <div className='w-full  min-h-screen p-20 pt-16'>
+    <div className='w-full   h-svh p-20 pt-16'>
       {
         loading ? (
           <div className='w-full min-h-screen flex items-center justify-center'>
@@ -40,13 +44,16 @@ const View:FC<Params> = ({params}) => {
         <div className='w-full h-auto flex justify-center'>
             <h2 className='text-3xl font-medium mb-3'>{viewWishes?.title}</h2>
         </div>
-
-          {
+        <div className='w-full h-wish-container flex flex-wrap overflow-x-scroll'>
+        {
         viewWishes?.wishes?.map((view)=>(
-  <ViewWishCard key={view._id} view={view}/>
+  <ViewWishCard key={view._id}  view={view} params={params}/>
 
         ))
       }
+        </div>
+
+      
          </>
           
         )

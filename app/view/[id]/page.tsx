@@ -1,10 +1,10 @@
 import View from '@/components/View/View'
 import React, { FC } from 'react';
-import { Params } from '@/interfaces';
+import { ViewParams } from '@/interfaces';
 
-const page:FC<Params> = ({params}) => {
+const page:FC<ViewParams> = ({params}) => {
   return (
-    <div className='w-full h-auto bg-red-100'>
+    <div className='w-full h-auto  bg-slate-50'>
         <View  params={params}/>
     </div>
   )

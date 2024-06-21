@@ -30,10 +30,10 @@ const Home = () => {
   
   }, []);
   return (
-    <div className='w-full min-h-screen bg-red-100 flex flex-col items-center  justify-center'>
-      <h2 className='text-3xl font-medium mb-20'><span className='text-red-700'> Hi  {user?.displayName}</span>, please choose wishlist</h2>
+    <div className='w-full h-full   rounded-lg  flex flex-col items-center  justify-center'>
+      <h2 className='text-3xl font-medium mb-20'><span className='text-yellow-400'> Hi  {user?.displayName}</span>, please choose wishlist</h2>
       <img  src="https://emojiisland.com/cdn/shop/products/Waving_Hand_Sign_Emoji_Icon_ios10_large.png?v=1571606113" alt="" className=" w-56 h-56  animate-bounce" />
-
+   
     </div>
   )
 }

@@ -1,10 +1,11 @@
 export interface Wish {
+
     title: string;
     createdAt: Date;
     isBooked: boolean;
 }
 export interface WishData{
-    _id:number,
+    id:number,
     title: string;
     createdAt: Date;
     isBooked: boolean;
@@ -37,20 +38,32 @@ export interface Params{
 
 
 }
+export interface ViewParams{
+  params:{
+    id:any
+    uid:any,
+    wishId:string
+
+  }
+
+
+}
 
 export interface viewWishData{
-  _id:any,
+  _id:string,
+  id:number,
   title: string;
   isBooked: boolean;
   
 }
 export interface viewWish{
+  id:number,
   title: string;
   isBooked: boolean;
   
 }
 export interface viewWishListData {
-  _id:any;
+  id:number;
   title: string;
   wishes:viewWishData[]
 }
