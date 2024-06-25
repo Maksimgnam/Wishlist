@@ -36,7 +36,7 @@ const UserCard = () => {
       </div>
 
     
-    <div className='w-20 h-8 bg-slate-100  rounded flex items-center p-1'>
+    <div className=' min-w-20 w-auto h-8 bg-slate-100  rounded flex items-center p-1'>
       {
          user &&     <>
         <p className='text-sm font-medium mr-3'>{user?.displayName}</p>

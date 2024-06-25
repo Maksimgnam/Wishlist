@@ -109,7 +109,7 @@ const Menu: FC<Params> = ({ params }) => {
             </Link>
           ))
         ) : (
-          <p className='text-sm font-medium'>No created wishlists </p>
+          <p className='text-sm font-medium pl-2'>No created wishlists </p>
         )}
       </div>
 
