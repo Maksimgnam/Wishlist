@@ -10,7 +10,8 @@ const CreateWish:FC<Params> = ({params}) => {
     const [wishData, setWishData] = useState<Wish>({
         title: '',
         createdAt: new Date(),
-        isBooked: false
+        isBooked: false,
+        wishId:`${randomId}`
     });
 
     const addWish = async (event: React.FormEvent)=>{
@@ -31,12 +32,12 @@ const CreateWish:FC<Params> = ({params}) => {
   
             const result = await response.json();
             console.log(result);
-
-  
+            
             setWishData({
                 title: '',
                 createdAt: new Date(),
-                isBooked: false
+                isBooked: false,
+                wishId:`${randomId}`
             });
             router.push(`/home/${params.uid}/wishes/${params.id}`)
          

@@ -15,11 +15,17 @@ interface WishContainerData{
 
 const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFilter}) => {
   const [filter, setFilter] = useState('all');
+  const [searchWish , setSearchWish] = useState('')
   const filteredWishes = (wishes?.wishes ?? []).filter((wish: WishData) => {
-    if (filter === 'booked') return wish.isBooked === true;
-    if (filter === 'free') return wish.isBooked === false;
-    return true;
+    // if (filter === 'booked') return wish.isBooked === true;
+    // if (filter === 'free') return wish.isBooked === false;
+    // return true;
+    const filteredStatus = filter === "all" || (filter === 'booked' && wish.isBooked) || (filter === 'free' && !wish.isBooked);
+    const filteredSearch = wish.title.toLowerCase().includes(searchWish.toLowerCase());
+    return filteredSearch && filteredStatus
   });
+
+
   const lenghtOf = filteredWishes?.length
   
 
@@ -37,9 +43,10 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
           <option value="booked">Booked</option>
           <option value="free">Free</option>
         </select>
-        {/* <input type="text" placeholder='Search...' className='w-44 h-8   border border-pink-300 rounded outline-none ml-3 pl-2'/> */}
+
 
         </div>
+        <input type="text" value={searchWish} onChange={(e)=> setSearchWish(e.target.value)} placeholder='Search...' className='w-48 h-8   border rounded outline-none ml-3 pl-2'/>
         <Link href={`/home/${params.uid}/wishes/${params.id}/createWish`}>
         <button className='w-32 h-8 text-white bg-yellow text-sm bg-button rounded-md'>+ New wish</button>
       </Link>

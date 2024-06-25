@@ -13,7 +13,7 @@ const WishCard:FC<WishCardData> = ({wish}) => {
       <div className='w-full h-auto flex justify-end '>
         {
           wish.isBooked  === true ?(
-            <div className='w-16 h-6 bg-button rounded  flex items-center justify-center'>
+            <div className='w-16 h-6 bg-green-400 rounded  flex items-center justify-center'>
             <p className='text-sm text-white'>Booked</p>
           </div>
 

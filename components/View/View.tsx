@@ -47,7 +47,7 @@ const View:FC<ViewParams> = ({params}) => {
         <div className='w-full h-wish-container flex flex-wrap overflow-x-scroll'>
         {
         viewWishes?.wishes?.map((view)=>(
-  <ViewWishCard key={view._id}  view={view} params={params}/>
+  <ViewWishCard key={view.wishId}  view={view} params={params}/>
 
         ))
       }

@@ -13,20 +13,20 @@ interface ViewWishCard{
 }
 
 const ViewWishCard:FC<ViewWishCard> = ({view, params}) => {
-  const bookWish = async () => {
-    try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/book/${params.wishId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ isBooked: true }), // Sample payload
-      });
+  // const bookWish = async () => {
+  //   try {
+  //     const response = await fetch(`http://localhost:8000/api/book/wishlist/${params.id}/wish/${params.wishId}`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ isBooked: true }), 
+  //     });
   
-    } catch (error) {
-      console.error('Error booking wish:', error);
-    }
-  };
+  //   } catch (error) {
+  //     console.error('Error booking wish:', error);
+  //   }
+  // };
 
   return (
     <div className={`w-full h-16  border rounded-lg flex items-center justify-between m-2 p-8 ml-0 ${view.isBooked ? 'bg-green-200' : 'bg-white'}`}>
@@ -38,8 +38,8 @@ const ViewWishCard:FC<ViewWishCard> = ({view, params}) => {
           </div>
 
           ):(
-            <Link href={`/view/${params.id}/${view.id}`}>
-            <div onClick={bookWish} className='w-11 h-6 rounded bg-gray-300 flex items-center justify-center'>
+            <Link href={`/view/${params.id}/${view.wishId}`}>
+            <div  className='w-11 h-6 rounded bg-gray-300 flex items-center justify-center'>
               <p className='text-sm text-white'>Free</p>
             </div>
             </Link>
