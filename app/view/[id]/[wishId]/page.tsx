@@ -4,7 +4,7 @@ import { ViewParams } from '@/interfaces';
 import BookView from '@/components/View/BookView';
 import { useRouter } from 'next/navigation';
 
-const page:FC<ViewParams> = ({params}) => {
+const Page:FC<ViewParams> = ({params}) => {
   const router = useRouter()
   const bookWish = async () => {
     try {
@@ -34,4 +34,4 @@ const page:FC<ViewParams> = ({params}) => {
   )
 }
 
-export default page
+export default Page
