@@ -4,6 +4,7 @@ const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./intro-components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -15,10 +16,12 @@ const config: Config = {
       },
       backgroundColor:{
         'whitesmoke':'#F5F5F5',
-        'yellow':"#FFD52E"
+        'dark':'rgba(0, 0, 0, 0.7)'
+   
       },
       width:{
-        'line':"2px"
+        'line':"2px",
+        'sidebar':'23%'
       },
       height:{
         "container":"92vh",
@@ -27,7 +30,16 @@ const config: Config = {
       },
       fontSize:{
         'mini':"12px"
-      }
+      },
+       keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '8' },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 2s ease-in-out',
+      },
       
     },
   },

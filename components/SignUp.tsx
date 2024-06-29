@@ -275,7 +275,7 @@ const SignUp: FC<Auth> = ({ isChange }) => {
   return (
 <>
       {!isCodeSent ? (
-        <div className='w-80 h-96 border shadow-2xl rounded-xl flex flex-col items-center justify-between p-6'>
+        <div className='w-80 h-96 border  rounded-xl flex flex-col items-center justify-between p-6'>
         <h2 className='text-2xl text-black font-medium'>Sign up</h2>
      
           <div className='w-full h-44 flex flex-col justify-between'>

@@ -2,11 +2,16 @@
 import React, {FC, useEffect, useState} from 'react';
 import {auth} from '../firebase/config'
 import { User } from '@/interfaces';
+import Image from 'next/image';
 
 
+interface UserCardData{
+  isSettingsChange: ()=> void,
+  toggleTheme:()=> void,
+  isDarkTheme:boolean
+}
 
-
-const UserCard = () => {
+const UserCard:FC<UserCardData> = ({isSettingsChange,  toggleTheme, isDarkTheme}) => {
   const [user, setUser] = useState<User | null>(null);
 
 
@@ -30,13 +35,16 @@ const UserCard = () => {
     
    
   return (
-    <div className='w-auto h-auto flex'>
-      <div className='w-7 h-8 bg-slate-100 rounded flex  items-center justify-center'>
+    <div className={`w-auto h-auto rounded-md flex ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-white text-black'}`}>
+         <div onClick={toggleTheme} className='w-7 h-8  rounded flex  items-center justify-center'>
+        <Image src='/theme1.png' width={17} height={17} alt=''/>
+      </div>
+      <div onClick={isSettingsChange} className='w-7 h-8  rounded flex  items-center justify-center'>
         <img className='w-6 h-6' src="https://cdn-icons-png.flaticon.com/512/5166/5166607.png" alt="" />
       </div>
 
     
-    <div className=' min-w-20 w-auto h-8 bg-slate-100  rounded flex items-center p-1'>
+    <div className=' min-w-20 w-auto h-8   rounded flex items-center p-1'>
       {
          user &&     <>
         <p className='text-sm font-medium mr-3'>{user?.displayName}</p>

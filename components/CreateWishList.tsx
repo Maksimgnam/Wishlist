@@ -6,6 +6,7 @@ import { Params } from '@/interfaces';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
+
 const CreateWishList:FC<Params> = ({params}) => {
     const router = useRouter()
     const [wishListData, setWishListData] = useState<WishList>({
@@ -76,8 +77,8 @@ const CreateWishList:FC<Params> = ({params}) => {
             </div>
             <h2 className='text-md pl-2 '>New Wish List</h2>
         </div>
-        <input value={wishListData.title} onChange={inputChange} name='title' id='title' placeholder='Write your title'  className='w-full h-10  border  rounded outline-none  resize-none p-2 ' />
-        <textarea  value={wishListData.description} onChange={inputChange} name='description' placeholder='Write your description'  className='w-full h-28 rounded  outline-none border resize-none p-2 ' />
+        <input value={wishListData.title} onChange={inputChange} name='title' id='title' placeholder='Write your title'  className={`w-full h-10 bg-transparent  border  rounded outline-none  resize-none p-2 `} />
+        <textarea  value={wishListData.description} onChange={inputChange} name='description' placeholder='Write your description'  className='w-full h-28 bg-transparent  rounded  outline-none border resize-none p-2 ' />
         <button onClick={addWishList} className='w-full  h-10 bg-yellow rounded-md mt-3'>
             <p className='text-md font-medium text-white'>Add WishList</p>
         </button>

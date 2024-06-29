@@ -73,7 +73,7 @@ const CreateWish:FC<Params> = ({params}) => {
             </div>
             <h2 className='text-md pl-2 '>New wish </h2>
         </div>
-        <textarea  value={wishData.title} onChange={inputChange} name='title' placeholder='Write your wish'  className='w-full h-32 border rounded outline-none  resize-none p-2 ' />
+        <textarea  value={wishData.title} onChange={inputChange} name='title' placeholder='Write your wish'  className='w-full h-32 bg-transparent border rounded outline-none  resize-none p-2 ' />
         <button onClick={addWish} className='w-full  h-10 bg-yellow rounded-md mt-3'>
             <p className='text-md font-medium text-white'>Add Wish</p>
         </button>

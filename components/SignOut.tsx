@@ -10,7 +10,7 @@ const SignOut = () => {
     const signOut = async () => {
         try {
             await auth.signOut();
-            router.push('/')
+            router.push('/registration')
             Cookies.remove('dealer')
     
       

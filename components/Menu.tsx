@@ -5,17 +5,16 @@ import { WishListData } from '@/interfaces';
 import { auth } from '../firebase/config';
 import { User } from '@/interfaces';
 import Link from 'next/link';
-import UserCard from './UserCard';
 import SignOut from './SignOut';
 
 interface Params {
   params: {
     id: any;
     uid: any;
-  };
+  },isDarkTheme:boolean
 }
 
-const Menu: FC<Params> = ({ params }) => {
+const Menu: FC<Params> = ({ params, isDarkTheme }) => {
   const [wishlists, setWishlists] = useState<WishListData[]>([]);
   const [user, setUser] = useState<User | null>(null);
   const [isHide, setIsHide] = useState<boolean>(true)
@@ -60,28 +59,29 @@ const Menu: FC<Params> = ({ params }) => {
   }, [uid]);
 
   return (
-    <div className='w-1/5   lg:flex hidden justify-center items-center  '>
+    <div className={`w-1/5   lg:flex hidden justify-center  rounded-s-lg   ${isDarkTheme ? 'bg-darkness-theme border-yellow-200' : 'bg-white text-black'}  `}>
     
 
-      <div className='w-full  h-menu    rounded-s-lg flex flex-col justify-between  p-5 pt-7 '>
-        <div className='w-full h-auto'>
+      <div className={`w-full  h-full ${isDarkTheme ? '   border-yellow-00' : ' text-black'}    rounded-s-lg flex flex-col justify-between  p-5 pb-0  `}>
+        <div className='w-full h-auto '>
           <Link href={`/home/${params.uid}`}>
-        <div className='w-full h-9 hover:bg-slate-50  rounded flex items-center  ml-0 mr-0 '>
-          <div className='w-7 h-7 rounded flex items-center justify-center'>
-            <img className='w-5 h-5' src='https://static.thenounproject.com/png/423483-200.png' alt='' />
+        <div className={`w-full h-9  rounded flex items-center  ml-1 mr-0  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
+          <div className={`w-6 h-6 rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : ' '}`}>
+            <img className={`${isDarkTheme ? 'w-3 h-3 ' : ' w-5 h-5 '}`} src='https://static.thenounproject.com/png/423483-200.png' alt='' />
           </div>
           <p className='text-sm font-medium pl-1'>Home</p>
         </div>
         </Link>
 
-          <div className='w-full h-9 hover:bg-slate-50 rounded flex items-center justify-between mt-1  pr-4'>
-            <div className='w-auto h-auto flex items-center'>
-                <div className='w-7 h-7 rounded flex items-center justify-center'>
-                <img className='w-5 h-5' src='https://cdn-icons-png.freepik.com/512/4305/4305337.png' alt='' />
+          <div className={`w-full h-9 rounded flex items-center justify-between mt-1  pr-4  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
+            <div className='w-auto h-auto  flex items-center pl-1'>
+                <div className={`w-6 h-6  rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : ' '}`}>
+                  <p >               <img className={`${isDarkTheme ? 'w-3 h-3 ' : ' w-5 h-5 '}`} src='https://cdn-icons-png.freepik.com/512/4305/4305337.png' alt='' /></p>
+
                 </div>
               <p className='text-sm font-medium pl-1'>My wishlists</p>
             </div>
-            <button onClick={()=> setIsHide(!isHide)} className='w-6 h-6 bg-slate-50 hover:bg-slate-100 rounded'>
+            <button onClick={()=> setIsHide(!isHide)} className={`w-6 h-6  rounded ${isDarkTheme ? 'hover:bg-yellow-300 ' : 'hover:bg-slate-100 '} `}>
             {
             isHide ? (
               <p className='text-sm'>	&uarr;</p>
@@ -99,14 +99,14 @@ const Menu: FC<Params> = ({ params }) => {
         <div className='w-full h-auto flex flex-wrap mt-1'>
         {loading ? (
           <div className='w-full h-auto flex items-center justify-center'>
-          {/* <p className='text-sm font-medium'>Loading...</p> */}
+
             <img className="w-8 h-8 animate-spin" src="https://cdn-icons-png.flaticon.com/512/6175/6175867.png"alt="" />
           </div>
         ) : wishlists.length > 0 ? (
           wishlists.map((wishlist: WishListData) => (
-            <Link className='w-full' key={wishlist._id} href={`/home/${params.uid}/wishes/${wishlist._id}`}>
-              <WishListCard key={wishlist._id} title={wishlist.title} />
-            </Link>
+
+              <WishListCard key={wishlist._id} id={wishlist._id} title={wishlist.title} isDarkTheme={isDarkTheme} params={params} />
+      
           ))
         ) : (
           <p className='text-sm font-medium pl-2'>No created wishlists </p>
@@ -118,8 +118,8 @@ const Menu: FC<Params> = ({ params }) => {
      
      
         <Link className='w-full' href={`/home/${params.uid}/createWishlist`}>
-        <div className='w-full h-9 hover:bg-slate-50  rounded flex items-center  ml-0 mr-0 mt-2  pl-1 '>
-          <div className='w-6 h-6 bg-gray-50 rounded flex items-center justify-center'>
+        <div className={`w-full h-9   rounded flex items-center  ml-0 mr-0 mt-2  pl-1 ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '} `}>
+          <div className={`w-6 h-6  rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : 'bg-slate-100 '}`}>
             <p className='text-sm'>+</p>
           </div>
           <p className='text-sm font-medium pl-1'>New wishlist</p>

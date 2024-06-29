@@ -6,7 +6,7 @@ export interface Wish {
     wishId:string
 }
 export interface WishData{
-    id:number,
+    id:string,
     title: string;
     createdAt: Date;
     isBooked: boolean;
@@ -25,7 +25,7 @@ export interface WishListData {
   title: string;
   description:string;
   createdAt: Date;
-  wishes:[],
+  wishes: WishData[],
    userId:string
 }
 

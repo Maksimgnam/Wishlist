@@ -9,7 +9,7 @@ import Home from '@/components/Home';
 const page = () => {
  
   return (
-    <div className='sm:w-full  w-10/12  h-full  bg-white rounded-e-lg  '>
+    <div className='sm:w-full  w-10/12  h-full rounded-e-lg  '>
       <Home/>
     </div>
   )

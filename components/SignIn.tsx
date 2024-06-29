@@ -27,7 +27,7 @@ const SignIn:FC<Auth>  = ({isChange}) => {
 
 
   return (
-    <div className='w-80 h-80 border  shadow-2xl  rounded-xl flex flex-col  items-center  justify-between p-6'>
+    <div className='w-80 h-80 border    rounded-xl flex flex-col  items-center  justify-between p-6'>
         <h2 className='text-2xl text-black font-medium'> Sign in</h2>
         <div className='w-full h-28 flex flex-col justify-between' >
             <input type="email" value={email} onChange={(e)=> setEmail(e.target.value)} className='w-full h-12 bg-white text-black border   rounded  outline-none pl-2' placeholder='Email'  />

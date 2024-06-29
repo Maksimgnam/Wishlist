@@ -17,14 +17,19 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
   const [filter, setFilter] = useState('all');
   const [searchWish , setSearchWish] = useState('')
   const filteredWishes = (wishes?.wishes ?? []).filter((wish: WishData) => {
-    // if (filter === 'booked') return wish.isBooked === true;
-    // if (filter === 'free') return wish.isBooked === false;
-    // return true;
+
     const filteredStatus = filter === "all" || (filter === 'booked' && wish.isBooked) || (filter === 'free' && !wish.isBooked);
     const filteredSearch = wish.title.toLowerCase().includes(searchWish.toLowerCase());
     return filteredSearch && filteredStatus
   });
 
+
+  const  wishDeleted = (deletedWishId: string) => {
+    if (wishes) {
+    wishes.wishes == wishes.wishes.filter(wish => wish.id !== deletedWishId);
+      setIsFilter(!isFilter);
+    }
+  };
 
   const lenghtOf = filteredWishes?.length
   
@@ -37,7 +42,7 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="h-7 w-20 text-sm text-center border text-black rounded  outline-none "
+          className="h-7 w-20 bg-transparent text-sm text-center border rounded  outline-none "
         >
           <option value="all">All</option>
           <option value="booked">Booked</option>
@@ -46,7 +51,7 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
 
 
         </div>
-        <input type="text" value={searchWish} onChange={(e)=> setSearchWish(e.target.value)} placeholder='Search...' className='w-48 h-8   border rounded outline-none ml-3 pl-2'/>
+        <input type="text" value={searchWish} onChange={(e)=> setSearchWish(e.target.value)} placeholder='Search...' className='w-48 h-8 bg-transparent   border rounded outline-none ml-3 pl-2'/>
         <Link href={`/home/${params.uid}/wishes/${params.id}/createWish`}>
         <button className='w-32 h-8 text-white bg-yellow text-sm bg-button rounded-md'>+ New wish</button>
       </Link>
@@ -59,7 +64,7 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
     <div className='w-full h-wish-container flex flex-wrap overflow-y-scroll p-1 pl-0'>
       {
        filteredWishes?.map((wish:WishData)=>(
-          <WishCard key={wish.id} wish={wish}/>
+          <WishCard key={wish.id} wish={wish} onDelete={wishDeleted} params={params}/>
 
         ))
       }
