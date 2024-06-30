@@ -36,12 +36,12 @@ const UserCard:FC<UserCardData> = ({isSettingsChange,  toggleTheme, isDarkTheme}
    
   return (
     <div className={`w-auto h-auto rounded-md flex ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-white text-black'}`}>
-         <div onClick={toggleTheme} className='w-7 h-8  rounded flex  items-center justify-center'>
+      <button onClick={toggleTheme} className='w-7 h-8  rounded flex  items-center justify-center'>
         <Image src='/theme1.png' width={17} height={17} alt=''/>
-      </div>
-      <div onClick={isSettingsChange} className='w-7 h-8  rounded flex  items-center justify-center'>
+      </button>
+      <button onClick={isSettingsChange} className='w-7 h-8  rounded flex  items-center justify-center'>
         <img className='w-6 h-6' src="https://cdn-icons-png.flaticon.com/512/5166/5166607.png" alt="" />
-      </div>
+      </button>
 
     
     <div className=' min-w-20 w-auto h-8   rounded flex items-center p-1'>

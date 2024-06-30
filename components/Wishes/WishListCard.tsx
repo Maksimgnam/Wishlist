@@ -34,12 +34,12 @@ const WishListCard:FC<WishListCardData> = ({title, isDarkTheme, id, params}) => 
     }
   };
   return (
-    <div className={`w-full h-9 hover:bg-slate-50 rounded flex items-center justify-between   pl-1 pr-4  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
+    <div className={`w-full h-9 hover:bg-slate-50 rounded flex items-center justify-between   pl-1 pr-5  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
      
      <Link className='w-full' key={id} href={`/home/${params.uid}/wishes/${id}`}>
         <li className='text-sm  pl-1 '>{title}</li>
         </Link>
-        <button onClick={()=> deleteWishlist(id)} className='w-4 h-4 bg-red-400 rounded-sm flex items-center justify-center '>
+        <button onClick={()=> deleteWishlist(id)} className='w-4 h-4 bg-red-400 cursor-pointer rounded-sm flex items-center justify-center '>
           <Image src="/delete.png" width={8} height={8} alt=''/>
        </button>
 

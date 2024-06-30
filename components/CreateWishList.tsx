@@ -32,6 +32,7 @@ const CreateWishList:FC<Params> = ({params}) => {
                 },
                 body: JSON.stringify(wishListData),
             });
+     
   
             const result = await response.json();
             console.log(result);
@@ -43,7 +44,9 @@ const CreateWishList:FC<Params> = ({params}) => {
                 userId: `${params.uid}`,
                 createdAt: new Date(),
             });
+      
             router.push(`/home/${params.uid}`)
+        
   
   
         } catch (error) {

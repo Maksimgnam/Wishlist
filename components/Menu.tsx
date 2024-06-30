@@ -120,7 +120,7 @@ const Menu: FC<Params> = ({ params, isDarkTheme }) => {
         <Link className='w-full' href={`/home/${params.uid}/createWishlist`}>
         <div className={`w-full h-9   rounded flex items-center  ml-0 mr-0 mt-2  pl-1 ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '} `}>
           <div className={`w-6 h-6  rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : 'bg-slate-100 '}`}>
-            <p className='text-sm'>+</p>
+            <p className='text-mini'>+</p>
           </div>
           <p className='text-sm font-medium pl-1'>New wishlist</p>
         </div>

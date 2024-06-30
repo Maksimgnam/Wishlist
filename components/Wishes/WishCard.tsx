@@ -33,9 +33,9 @@ const WishCard:FC<WishCardData> = ({wish, onDelete, params}) => {
  
       
 </p>
-      <div className='w-full h-auto flex justify-between '>
-      <button onClick={()=> handleDelete(wish.id)} className='w-6 h-6 bg-red-400 rounded flex items-center justify-center '>
-      <Image src="/delete.png" width={12 } height={12} alt=''/>
+      <div className='w-full h-auto flex items-center justify-between '>
+      <button onClick={()=> handleDelete(wish.id)} className='w-5 h-5 bg-red-400 rounded flex items-center justify-center '>
+          <Image src="/delete.png" width={10 } height={10} alt=''/>
       </button>
         {
           wish.isBooked  === true ?(
