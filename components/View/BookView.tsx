@@ -97,12 +97,12 @@ const BookView: FC<BookViewData> = ({ params, bookWish }) => {
       isSendCode &&    <div>
       <div className='w-64 h-8 flex items-center justify-end mb-3'>
         <Link href={`/view/${params.id}`}>
-          <button className='w-6 h-6 bg-black rounded-full relative left-7'>
-            <p className='text-sm text-white font-medium'>x</p>
+          <button className='w-5 h-5 bg-black rounded-full relative left-10'>
+            <p className='text-mini text-white font-medium'>x</p>
           </button>
         </Link>
       </div>
-      <div className='w-64 h-60 rounded-lg border shadow-2xl flex flex-col justify-between p-4'>
+      <div className='sm:w-64 w-72 sm:h-60 h-64 rounded-lg border shadow-2xl flex flex-col justify-between p-4'>
         <div className='w-auto h-auto flex items-center'>
           <div className='w-7 h-7 bg-yellow-200 rounded flex items-center justify-center'>
             <p>🎁</p>

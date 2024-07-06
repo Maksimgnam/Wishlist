@@ -16,7 +16,7 @@ const WishListCard:FC<WishListCardData> = ({title, isDarkTheme, id, params}) => 
   const router = useRouter()
   const deleteWishlist = async (id:string) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/delete-wishlist/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/delete-wishlist/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

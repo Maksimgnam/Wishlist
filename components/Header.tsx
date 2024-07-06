@@ -17,7 +17,17 @@ const Header:FC<HeaderData> = ({isSettingsChange, toggleTheme, isDarkTheme}) => 
             </div>
             <p  className='text-sm font-medium pl-1'>Wishist</p>
         </div>
+        <div className='w-auto h-auto flex '>
+    
+
+
         <UserCard isSettingsChange={isSettingsChange}  toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/> 
+        <button className={`w-8 h-8   rounded-md lg:hidden flex flex-wrap items-center justify-between p-1.5   ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-white text-black'}`}>
+            <div className='w-full h-line bg-white rounded-md'></div>
+            <div className='w-full h-line bg-white rounded-md'></div>
+            <div className='w-full h-line bg-white rounded-md'></div>
+          </button>
+        </div>
   
     </div>
   )

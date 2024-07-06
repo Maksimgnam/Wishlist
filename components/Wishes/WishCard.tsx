@@ -12,7 +12,7 @@ interface WishCardData{
 const WishCard:FC<WishCardData> = ({wish, onDelete, params}) => {
   const handleDelete = async (wishId:string) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/delete-wish/${params.id}/${wishId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/delete-wish/${params.id}/${wishId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

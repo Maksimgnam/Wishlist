@@ -42,7 +42,7 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="h-7 w-20 bg-transparent text-sm text-center border rounded  outline-none "
+          className="   w-20 h-7  bg-transparent text-sm text-center border rounded  outline-none "
         >
           <option value="all">All</option>
           <option value="booked">Booked</option>
@@ -51,9 +51,9 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
 
 
         </div>
-        <input type="text" value={searchWish} onChange={(e)=> setSearchWish(e.target.value)} placeholder='Search...' className='w-48 h-8 bg-transparent   border rounded outline-none ml-3 pl-2'/>
+        <input type="text" value={searchWish} onChange={(e)=> setSearchWish(e.target.value)} placeholder='Search...' className='sm:w-48 w-36 h-8 bg-transparent   border rounded outline-none ml-3 pl-2'/>
         <Link href={`/home/${params.uid}/wishes/${params.id}/createWish`}>
-        <button className='w-32 h-8 text-white bg-yellow text-sm bg-button rounded-md'>+ New wish</button>
+        <button className='sm:w-32 w-24 h-8 text-white bg-yellow text-sm bg-button rounded-md'>+ New wish</button>
       </Link>
 
       </div>
@@ -61,7 +61,7 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
      
 {
   lenghtOf > 0 ?(
-    <div className='w-full h-wish-container flex flex-wrap overflow-y-scroll p-1 pl-0'>
+    <div className='w-full h-wish-container flex flex-wrap justify-center sm:justify-start overflow-y-scroll p-1 pl-0'>
       {
        filteredWishes?.map((wish:WishData)=>(
           <WishCard key={wish.id} wish={wish} onDelete={wishDeleted} params={params}/>

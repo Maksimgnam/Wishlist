@@ -36,7 +36,7 @@ const WishHeader:FC<WishHeaderData> = ({params, wishes, setIsFilter}) => {
   },[])
   const deleteWishlist = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/delete-wishlist/${params.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/delete-wishlist/${params.id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

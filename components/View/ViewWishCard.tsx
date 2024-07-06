@@ -13,24 +13,15 @@ interface ViewWishCard{
 }
 
 const ViewWishCard:FC<ViewWishCard> = ({view, params}) => {
-  // const bookWish = async () => {
-  //   try {
-  //     const response = await fetch(`http://localhost:8000/api/book/wishlist/${params.id}/wish/${params.wishId}`, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ isBooked: true }), 
-  //     });
-  
-  //   } catch (error) {
-  //     console.error('Error booking wish:', error);
-  //   }
-  // };
+
 
   return (
-    <div className={`w-full h-16  border rounded-lg flex items-center justify-between m-2 p-8 ml-0 ${view.isBooked ? 'bg-green-200' : 'bg-white'}`}>
-        <p className={`text-lg font-medium ${view.isBooked ? ' line-through ' : ''}`}>{view.title}</p>
+    <div className={`sm:w-11/12 w-full h-16  border rounded-lg flex items-center justify-between m-6 mt-2 p-6 ml-0 ${view.isBooked ? 'bg-green-200' : 'bg-white'}`}>
+      <div className='w-auto h-auto flex items-center'>
+       <p className='text-2xl'>🎁</p>
+        <p className={`text-lg  ${view.isBooked ? ' line-through ' : ''} pl-2`}>{view.title}</p>
+      </div>
+
         {
           view.isBooked  === true ?(
             <div className='w-16 h-6 rounded bg-booked flex items-center justify-center'>

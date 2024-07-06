@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 
 const page:FC<Params> = ({params}) => {
   return (
-    <div className='lg:w-full w-full h-fullrounded-e-lg  '>
+    <div className=' w-full h-full  rounded-e-lg  '>
         <Wishes params={params}/>
     </div>
   )

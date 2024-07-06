@@ -26,7 +26,8 @@ const config: Config = {
       height:{
         "container":"92vh",
         "menu":"94vh",
-        "wish-container":"75vh"
+        "wish-container":"75vh",
+        "line":"2px"
       },
       fontSize:{
         'mini':"12px"

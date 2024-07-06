@@ -44,7 +44,7 @@ const Menu: FC<Params> = ({ params, isDarkTheme }) => {
       if (!uid) return;
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:8000/api/wishlists`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/wishlists`);
         const data = await response.json();
         const filteredWishlists = data.filter((wishlist: WishListData) => wishlist.userId === uid);
         setWishlists(filteredWishlists);

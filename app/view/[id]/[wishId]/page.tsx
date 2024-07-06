@@ -8,7 +8,7 @@ const Page:FC<ViewParams> = ({params}) => {
   const router = useRouter()
   const bookWish = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/book/wishlist/${params.id}/wish/${params.wishId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/book/wishlist/${params.id}/wish/${params.wishId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

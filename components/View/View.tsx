@@ -31,7 +31,7 @@ const View:FC<ViewParams> = ({params}) => {
    
       
   return (
-    <div className='w-full   h-svh p-20 pt-16'>
+    <div className='w-full   h-svh sm:p-12 p-7 pt-8 '>
       {
         loading ? (
           <div className='w-full min-h-screen flex items-center justify-center'>
@@ -41,10 +41,10 @@ const View:FC<ViewParams> = ({params}) => {
         ):(
           <>
    
-        <div className='w-full h-auto flex justify-center'>
-            <h2 className='text-3xl font-medium mb-3'>{viewWishes?.title}</h2>
+        <div className='w-full h-auto flex  '>
+            <h2 className='text-2xl text-red-500 font-medium mb-3'>{viewWishes?.title}<span className='text-black'>{`'s wishes`}</span></h2>
         </div>
-        <div className='w-full h-wish-container flex flex-wrap overflow-x-scroll'>
+        <div className='w-full h-wish-container  '>
         {
         viewWishes?.wishes?.map((view)=>(
   <ViewWishCard key={view.wishId}  view={view} params={params}/>
