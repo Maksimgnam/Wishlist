@@ -1,6 +1,8 @@
 import React from 'react';
 import { FC } from 'react';
+import useStore from '@/store/store';
 import UserCard from './UserCard'
+
 interface HeaderData{
   isSettingsChange: ()=> void,
   toggleTheme:()=> void,
@@ -8,6 +10,7 @@ interface HeaderData{
 }
 
 const Header:FC<HeaderData> = ({isSettingsChange, toggleTheme, isDarkTheme}) => {
+  const toggleMenuBar = useStore((state) => state.toggleMenuBar);
 
   return (
     <div className='w-full  h-12 flex items-center  justify-between p-1 '>
@@ -22,10 +25,10 @@ const Header:FC<HeaderData> = ({isSettingsChange, toggleTheme, isDarkTheme}) => 
 
 
         <UserCard isSettingsChange={isSettingsChange}  toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/> 
-        <button className={`w-8 h-8   rounded-md lg:hidden flex flex-wrap items-center justify-between p-1.5   ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-white text-black'}`}>
-            <div className='w-full h-line bg-white rounded-md'></div>
-            <div className='w-full h-line bg-white rounded-md'></div>
-            <div className='w-full h-line bg-white rounded-md'></div>
+        <button onClick={toggleMenuBar} className={`w-8 h-8   rounded-md lg:hidden flex flex-wrap items-center justify-between p-1.5   ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-white text-black'}`}>
+            <div className={`w-full h-line ${isDarkTheme ? 'bg-white': 'bg-black'}  rounded-md`}></div>
+            <div className={`w-full h-line ${isDarkTheme ? 'bg-white': 'bg-black'}  rounded-md`}></div>
+            <div className={`w-full h-line ${isDarkTheme ? 'bg-white': 'bg-black'} rounded-md`}></div>
           </button>
         </div>
   

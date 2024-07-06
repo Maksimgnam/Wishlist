@@ -74,7 +74,7 @@ const Settings:FC<SettingsData> = ({isSettingsChange, isDarkTheme}) => {
 
   return (
     <div className={`w-full h-svh bg-dark flex items-center justify-center  absolute top-0`}>
-        <div className={`w-2/5 h-3/6 bg-white ${isDarkTheme ? 'bg-darkness-theme   text-white border-none ' : 'bg-white text-black border-2  '} rounded-lg shadow-2xl flex   pl-6 pr-6`}>
+        <div className={`sm:w-2/5 w-10/12 h-3/6 bg-white ${isDarkTheme ? 'bg-darkness-theme   text-white border-none ' : 'bg-white text-black border-2  '} rounded-lg shadow-2xl flex   pl-6 pr-6`}>
         
             <div className='w-full h-full '>
               <div className='w-full h-11  flex items-end justify-between    '>

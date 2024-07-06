@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import useStore from '@/store/store';
 
 interface WishListCardData{
     title:string,
@@ -14,6 +15,7 @@ interface WishListCardData{
 
 const WishListCard:FC<WishListCardData> = ({title, isDarkTheme, id, params}) => {
   const router = useRouter()
+  const closeMenuBar = useStore((state) => state.closeMenuBar);
   const deleteWishlist = async (id:string) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/delete-wishlist/${id}`, {
@@ -34,9 +36,9 @@ const WishListCard:FC<WishListCardData> = ({title, isDarkTheme, id, params}) => 
     }
   };
   return (
-    <div className={`w-full h-9 hover:bg-slate-50 rounded flex items-center justify-between   pl-1 pr-5  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
+    <div  className={`w-full h-9 hover:bg-slate-50 rounded flex items-center justify-between   pl-1 pr-5  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
      
-     <Link className='w-full' key={id} href={`/home/${params.uid}/wishes/${id}`}>
+     <Link onClick={closeMenuBar}  className='w-full' key={id} href={`/home/${params.uid}/wishes/${id}`}>
         <li className='text-sm  pl-1 '>{title}</li>
         </Link>
         <button onClick={()=> deleteWishlist(id)} className='w-4 h-4 bg-red-400 cursor-pointer rounded-sm flex items-center justify-center '>

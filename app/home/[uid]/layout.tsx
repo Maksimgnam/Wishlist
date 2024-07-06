@@ -6,6 +6,8 @@ import Header from '@/components/Header';
 import Menu from '@/components/Menu';
 import { redirect } from 'next/navigation';
 import Settings from '@/components/Settings';
+import useStore from '@/store/store';
+import MenuBar from '@/components/MenuBar';
 
 
 
@@ -20,6 +22,9 @@ interface HomeLayoutProps {
 const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
   const [isDealer, setIsDealer] = useState<boolean | null>(null);
   const [isSettings, setIsSettings] = useState<boolean>(false);
+  const isMenuBarOpen = useStore((state) => state.isMenuBarOpen);
+
+
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
@@ -58,6 +63,7 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
   };
 
 
+
   return (
     <div className='w-full'>
    
@@ -76,6 +82,10 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
         <Settings isSettingsChange={isSettingsChange} isDarkTheme={isDarkTheme}/>
       )
     }
+    {
+      isMenuBarOpen &&  <MenuBar isDarkTheme={isDarkTheme} params={params}/>
+    }
+  
    
     </div>
     
