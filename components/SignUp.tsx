@@ -215,28 +215,28 @@ const SignUp: FC<Auth> = ({ isChange }) => {
 <>
       {!isCodeSent ? (
         <div className='w-80 h-96 border  rounded-xl flex flex-col items-center justify-between p-6'>
-        <h2 className='text-2xl text-black font-medium'>Sign up</h2>
+        <h2 className='text-2xl  font-medium'>Sign up</h2>
      
           <div className='w-full h-44 flex flex-col justify-between'>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className='w-full h-12 bg-white text-black border rounded outline-none pl-2'
+              className='w-full h-12 bg-transparent text-white   border rounded outline-none pl-2'
               placeholder='Name'
             />
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className='w-full h-12 bg-white text-black border rounded outline-none pl-2'
+              className='w-full h-12 bg-transparent text-white  border rounded outline-none pl-2'
               placeholder='Email'
             />
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className='w-full h-12 bg-white text-black border outline-none pl-2'
+              className='w-full h-12 bg-transparent text-white border outline-none pl-2'
               placeholder='Password'
             />
           </div>
@@ -246,14 +246,14 @@ const SignUp: FC<Auth> = ({ isChange }) => {
           <div className='w-full h-6 flex items-center justify-end'>
         <div className='w-auto h-auto flex'>
           <p className='text-sm font-medium text-blue-500 cursor-pointer mr-3'>Sign up</p>
-          <p onClick={isChange} className='text-sm text-black font-medium cursor-pointer'>Sign in</p>
+          <p onClick={isChange} className='text-sm  font-medium cursor-pointer'>Sign in</p>
         </div>
       </div>
         </div>
       ) : (
         <>
                 <div className='w-80 h-52 border rounded  flex flex-col items-center justify-between p-4 '>
-             <h2 className='text-2xl text-black font-medium'>Verification</h2>
+             <h2 className='text-2xl font-medium'>Verification</h2>
             <div className='w-full h-12 flex flex-col justify-between'>
              <input
                 type="text"
