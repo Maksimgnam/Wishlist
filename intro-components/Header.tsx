@@ -24,7 +24,7 @@ const Header = () => {
    
       </div>
       <Link href={`/registration`}>
-        <button className='w-16 h-8 text-black  bg-yellow-200 rounded-md mt-1 mr-1'>
+        <button className='w-16 h-8 text-black  bg-yellow-200 rounded-md sm:hidden flex items-center  justify-center  mt-1 mr-1'>
           <p className='text-mini font-medium'>Let's go</p>
         </button>
         </Link>
