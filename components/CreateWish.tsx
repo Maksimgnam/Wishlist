@@ -66,7 +66,7 @@ const CreateWish:FC<Params> = ({params}) => {
         </Link>
 
     </div>
-    <div className='w-72 h-72  border shadow-2xl  rounded-xl flex flex-col items-center justify-between p-3'>
+    <div className='w-72 h-72  border shadow-2xl  rounded-xl flex flex-col items-center justify-between p-3 sm:m-0 ml-4'>
         <div className='w-full h-10 flex items-center'>
             <div className='w-7 h-7 bg-yellow rounded flex items-center justify-center'>
                 <p className='text-sm  text-white'>W</p>

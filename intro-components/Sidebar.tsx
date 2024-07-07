@@ -17,7 +17,7 @@ const SideBar = () => {
   return (
 
    
-    <div data-aos="fade-right"  data-aos-delay="50"   className='w-sidebar min-h-screen  bg-yellow-100 flex flex-col justify-between p-8 pt-7  '>
+    <div data-aos="fade-right"  data-aos-delay="50"   className='w-sidebar min-h-screen  bg-yellow-100 sm:flex hidden flex-col justify-between p-8 pt-7  '>
         <div className='w'>
         
         <h2 className='text-3xl text-black font-medium'>How it works <span className='text-4xl'>👌🏻</span></h2>

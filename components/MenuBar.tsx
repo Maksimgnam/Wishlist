@@ -19,6 +19,7 @@ interface MenuBarData{
 const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
     const [user, setUser] = useState<User | null>(null);
     const [wishlists, setWishlists] = useState<WishListData[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
     const toggleMenuBar = useStore((state) => state.toggleMenuBar);
     const uid = user?.uid;
 
@@ -41,7 +42,8 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
       return () => unsubscribe();
     }, []);
     useEffect(() => {
-      const fetchWishes = async () => {
+      const fetchWishlists = async () => {
+        setLoading(true)
         if (!uid) return;
 
         try {
@@ -52,11 +54,12 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
         } catch (error) {
           console.log(error);
         } finally {
+          setLoading(false)
 
         }
       };
   
-      fetchWishes();
+      fetchWishlists();
     }, [uid]);
   return (
     <div className='w-full h-svh bg-dark flex justify-end absolute top-0'>
@@ -65,10 +68,10 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
                 <div className='w-auto h-auto  rounded flex items-center p-1'>
       {
          user &&     <>
-                 <div className='w-9 h-9 bg-yellow rounded flex items-center justify-center'>
-            <p className='text-lg text-black  font-medium '>{user?.displayName.slice(0, 1)}</p>
+                 <div className='w-8 h-8 bg-yellow rounded flex items-center justify-center'>
+            <p className='text-md text-black  font-medium '>{user?.displayName.slice(0, 1)}</p>
         </div>
-        <p className='text-xl font-medium  pl-2 '>{user?.displayName}</p>
+        <p className='text-lg font-medium  pl-2 '>{user?.displayName}</p>
 
 
         </>
@@ -81,7 +84,7 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
               <Link href={`/home/${params.uid}`}>
             <div onClick={toggleMenuBar}  className='w-full h-auto  pl-1'>
             <div className={`w-full h-12  rounded flex items-center  ml-1 mr-0  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
-          <div className={`w-8 h-8 rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : ' '}`}>
+          <div className={`w-8 h-8 rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : ' bg-slate-100'}`}>
             <img className={`${isDarkTheme ? 'w-4 h-4 ' : ' w-5 h-5 '}`} src='https://static.thenounproject.com/png/423483-200.png' alt='' />
           </div>
           <p className='text-md font-medium pl-1'>Home</p>
@@ -89,26 +92,49 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
             </div>
             </Link>
             <div className='w-full h-auto  pl-1'>
-            <div className={`w-full h-12  rounded flex items-center  ml-1 mr-0  ${isDarkTheme ? ' hover:text-black ' : 'hover:bg-slate-100 '}`}>
-                <div className={`w-8 h-8  rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : ' '}`}>
+            <div className={`w-full h-12  rounded flex items-center  ml-1 mr-0  ${isDarkTheme ? '  ' : 'hover:bg-slate-100 '}`}>
+                <div className={`w-8 h-8  rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 ' : ' bg-slate-100'}`}>
                   <p><img className={`${isDarkTheme ? 'w-4 h-4 ' : ' w-5 h-5 '}`} src='https://cdn-icons-png.freepik.com/512/4305/4305337.png' alt='' /></p>
                 </div>
-              <p className='text-md text-white font-medium pl-1'>My wishlists</p>
+              <p className='text-md  font-medium pl-1'>My wishlists</p>
             </div>
             {
-                wishlists.map((wishlist: WishListData) => (
+              loading ? (
+                <div className='w-full h-auto flex items-center justify-center'>
 
-                  <WishListCard key={wishlist._id} id={wishlist._id} title={wishlist.title} isDarkTheme={isDarkTheme} params={params} />
+                <img className="w-8 h-8 animate-spin" src="https://cdn-icons-png.flaticon.com/512/6175/6175867.png"alt="" />
+              </div>
+
+              ):(
+
+                <>
+                { 
+               
+                wishlists.length > 0  ? (
+                    wishlists.map((wishlist: WishListData) => (
+    
+                      <WishListCard key={wishlist._id} id={wishlist._id} title={wishlist.title} isDarkTheme={isDarkTheme} params={params} />
+              
+                  ))
+                ):(
+               
+                  <p className='pl-1 m-2 ml-0 mr-0'>{`No created wishlist's`}</p>
+            
+                )
+                }
           
-              ))
+                </>
+
+              )
             }
+          
             </div>
             <Link className='w-full' onClick={toggleMenuBar} href={`/home/${params.uid}/createWishlist`}>
         <div  className={`w-full h-9   rounded flex items-center  ml-0 mr-0 mt-2  pl-2 ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '} `}>
-          <div className={`w-8 h-8 rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : 'bg-slate-100 '}`}>
-            <p className='text-md'>+</p>
+          <div className={`w-7 h-7 rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : 'bg-slate-100 '}`}>
+            <p className='text-sm'>+</p>
           </div>
-          <p className='text-sm font-medium pl-1'>New wishlist</p>
+          <p className='text-md font-medium pl-1'>New wishlist</p>
         </div>
         </Link>
             </div>

@@ -35,7 +35,7 @@ const UserCard:FC<UserCardData> = ({isSettingsChange,  toggleTheme, isDarkTheme}
     
    
   return (
-    <div className={`w-auto h-auto rounded-md flex mr-2 ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-white text-black'}`}>
+    <div className={`w-auto h-auto rounded-md flex mr-2 ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-stone-50 text-black'}`}>
       <button onClick={toggleTheme} className='w-7 h-8  rounded flex  items-center justify-center'>
         <Image src='/theme1.png' width={17} height={17} alt=''/>
       </button>

@@ -40,7 +40,7 @@ const Menu: FC<Params> = ({ params, isDarkTheme }) => {
   }, []);
 
   useEffect(() => {
-    const fetchWishes = async () => {
+    const fetchWishlists = async () => {
       if (!uid) return;
       setLoading(true);
       try {
@@ -55,7 +55,7 @@ const Menu: FC<Params> = ({ params, isDarkTheme }) => {
       }
     };
 
-    fetchWishes();
+    fetchWishlists();
   }, [uid]);
 
   return (

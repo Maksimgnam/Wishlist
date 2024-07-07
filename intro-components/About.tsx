@@ -28,7 +28,7 @@ const About = () => {
                 <p className='text-sm  text-black font-medium pl-2 pt-1'>History   </p>
             </div>
 
-            <div className='w-11/12 h-auto p-3 pt-1 pl-5 pr-8 '>
+            <div className='sm:w-11/12 w-full  h-auto p-3 pt-1 pl-5 pr-8 '>
                     <p className='text-md text-black '> Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex magnam iste odit eligendi, sunt voluptatem quisquam porro pariatur impedit?Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex magnam iste odit eligendi, sunt voluptatem quisquam porro pariatur impedit  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex magnam iste odit eligendi, sunt voluptatem quisquam porro pariatur impedit?? </p>
             </div>
             </div>

@@ -25,7 +25,7 @@ const Header:FC<HeaderData> = ({isSettingsChange, toggleTheme, isDarkTheme}) => 
 
 
         <UserCard isSettingsChange={isSettingsChange}  toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/> 
-        <button onClick={toggleMenuBar} className={`w-8 h-8   rounded-md lg:hidden flex flex-wrap items-center justify-between p-1.5   ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-white text-black'}`}>
+        <button onClick={toggleMenuBar} className={`w-8 h-8   rounded-md lg:hidden flex flex-wrap items-center justify-between p-1.5   ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-stone-50 text-black'}`}>
             <div className={`w-full h-line ${isDarkTheme ? 'bg-white': 'bg-black'}  rounded-md`}></div>
             <div className={`w-full h-line ${isDarkTheme ? 'bg-white': 'bg-black'}  rounded-md`}></div>
             <div className={`w-full h-line ${isDarkTheme ? 'bg-white': 'bg-black'} rounded-md`}></div>

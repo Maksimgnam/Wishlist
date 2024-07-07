@@ -80,7 +80,7 @@ const WishHeader:FC<WishHeaderData> = ({params, wishes, setIsFilter}) => {
 
     {
       isHide && (
-        <div className='w-48 h-9  shadow-md rounded-md flex items-center justify-between mr-9 p-2   mt-1 '>
+        <div className='w-48 h-9  shadow-md rounded-md flex items-center justify-between sm:mr-9 mr-1 p-2   mt-1 '>
           <p className='text-sm'>{link.slice(0, 19)}...</p>
           <button ref={buttonRef} onClick={()=> setIsHide(false)} className='w-6 h-6 text-white bg-yellow rounded flex items-center justify-center '>
           <img className='w-3 h-3' src="https://cdn-icons-png.flaticon.com/512/1621/1621635.png" alt="" />

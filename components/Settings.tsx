@@ -73,13 +73,13 @@ const Settings:FC<SettingsData> = ({isSettingsChange, isDarkTheme}) => {
   }
 
   return (
-    <div className={`w-full h-svh bg-dark flex items-center justify-center  absolute top-0`}>
-        <div className={`sm:w-2/5 w-10/12 h-3/6 bg-white ${isDarkTheme ? 'bg-darkness-theme   text-white border-none ' : 'bg-white text-black border-2  '} rounded-lg shadow-2xl flex   pl-6 pr-6`}>
+    <div className={`w-full h-svh bg-dark flex items-center justify-center  absolute top-0`}> 
+        <div className={`sm:w-2/5 w-10/12 h-3/6 bg-white ${isDarkTheme ? 'bg-darkness-theme   text-white border-none ' : 'bg-white text-black border-2  '} rounded-lg shadow-2xl flex   sm:pl-6 sm:pr-6 pl-3 pr-3`}>
         
             <div className='w-full h-full '>
               <div className='w-full h-11  flex items-end justify-between    '>
-                <h2 className='text-2xl'>Settings</h2>
-                <p className='text-xl pb-1 ' onClick={isSettingsChange}>x</p>
+                <h2 className='sm:text-2xl text-xl'>Settings</h2>
+                <p className='text-xl pb-1 pr-3 ' onClick={isSettingsChange}>x</p>
               </div>
               
               <div className='w-full h-auto mt-1 '>
@@ -90,9 +90,9 @@ const Settings:FC<SettingsData> = ({isSettingsChange, isDarkTheme}) => {
                   </button>
                     <p className='text-lg font-medium pl-2'>{user?.displayName}</p>
                   </div>
-                  <button className='w-5 h-5 bg-yellow-200 rounded flex items-center  justify-center ml-4'>
+                  {/* <button className='w-5 h-5 bg-yellow-200 rounded flex items-center  justify-center ml-4'>
                     <Image src='/edit.png' width={13} height={13} alt=''/>
-                  </button>
+                  </button> */}
                 </div>
           
                 <div className='w-full h-10  flex items-center p-2 pt-3 '>
@@ -102,9 +102,9 @@ const Settings:FC<SettingsData> = ({isSettingsChange, isDarkTheme}) => {
                   </button>
                   <p className='text-md font-medium pl-2'>{user?.email}</p>
                   </div>
-                  <button className='w-5 h-5 bg-yellow-200 rounded flex items-center  justify-center ml-4'>
+                  {/* <button className='w-5 h-5 bg-yellow-200 rounded flex items-center  justify-center ml-4'>
                     <Image src='/edit.png' width={13} height={13} alt=''/>
-                  </button>
+                  </button> */}
 
                   
                 </div>
@@ -129,7 +129,7 @@ const Settings:FC<SettingsData> = ({isSettingsChange, isDarkTheme}) => {
                   </div>
                   <p className='text-red-400 pl-2'>Delete account</p>
                   </button>
-                  <button onClick={signOut} className='w-auto flex h-7  text-black rounded mt-2  '>
+                  <button onClick={signOut} className='w-auto flex h-7  text-black rounded mt-4  '>
                   <div className='w-6 h-6 bg-green-400 text-black rounded flex items-center  justify-center'>
                     <Image src='/signOut.png' width={11} height={11} alt=''/>
                   

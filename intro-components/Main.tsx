@@ -10,9 +10,9 @@ const Main = () => {
     <div className='w-full h-svh'>
     <div className='w-full h-svh flex '>
         <Sidebar/>
-       <div className='w-4/5 h-svh p-5 pl-7 plr-7 '>
+       <div className='sm:w-4/5 w-full h-svh sm:p-5 sm:pl-7 sm:pr-7 '>
           <Header/>
-          <div className='w-full h-auto overflow-y-scroll p-3 '>
+          <div className='w-full  h-auto overflow-y-scroll p-3 '>
             {/* <div className='w-full h-auto'>
               <div className='w-64 h-44 bg-white rounded-xl  border'></div>
             </div> */}
