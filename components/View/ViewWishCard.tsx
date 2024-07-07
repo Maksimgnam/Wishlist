@@ -19,7 +19,7 @@ const ViewWishCard:FC<ViewWishCard> = ({view, params}) => {
     <div className={` w-full h-16  border rounded-lg flex items-center justify-between m-6 mt-2 sm:p-6 p-4 ml-0 mr-0 ${view.isBooked ? 'bg-green-200' : 'bg-white'}`}>
       <div className='w-auto h-auto flex items-center'>
        <p className='text-2xl'>🎁</p>
-        <p className={`text-lg  ${view.isBooked ? ' line-through ' : ''} pl-2`}>{view.title}</p>
+        <p className={`text-lg text-black  ${view.isBooked ? ' line-through ' : ''} pl-2`}>{view.title}</p>
       </div>
 
         {
