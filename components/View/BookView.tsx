@@ -107,7 +107,7 @@ const BookView: FC<BookViewData> = ({ params, bookWish }) => {
           <div className='w-7 h-7 bg-yellow-200 rounded flex items-center justify-center'>
             <p>🎁</p>
           </div>
-          <h2 className='text-lg pl-2'>{wish?.title}</h2>
+          <h2 className='text-lg text-black pl-2'>{wish?.title}</h2>
         </div>
 
         <div>
@@ -115,7 +115,7 @@ const BookView: FC<BookViewData> = ({ params, bookWish }) => {
             <div>booked</div>
           ) : (
             <div className='flex items-center'>
-              <p className='text-md'>Status:</p>
+              <p className='text-md text-black'>Status:</p>
               <div className='w-24 h-6 bg-red-200 text-red-400 text-sm rounded flex items-center justify-center ml-2'>
                 not booked
               </div>
@@ -129,7 +129,7 @@ const BookView: FC<BookViewData> = ({ params, bookWish }) => {
           id='to'
           value={wishData.to}
           onChange={handleChange}
-          className='w-full h-10 text-sm rounded flex border resize-none outline-none pl-1'
+          className='w-full h-10 text-sm text-black rounded flex border resize-none outline-none pl-1'
           placeholder='Write your email for validation'
         />
 
@@ -143,8 +143,8 @@ const BookView: FC<BookViewData> = ({ params, bookWish }) => {
     }
  
     {
-      isVerify &&  <div className='w-56 h-36  flex flex-col items-center justify-around'>
-      <h2 className='text-xl'>Verify code 😂</h2>
+      isVerify &&  <div className='w-56 min-h-36 h-auto  flex flex-col items-center justify-around'>
+      <h2 className='text-xl text-black'>Verify code 😂</h2>
 
 
         <input
@@ -153,7 +153,7 @@ const BookView: FC<BookViewData> = ({ params, bookWish }) => {
           id='enteredCode'
           value={enteredCode}
           onChange={handleCodeChange}
-          className='w-full h-10 text-sm rounded flex border resize-none outline-none pl-1 mt-3'
+          className='w-full h-10 text-sm text-black rounded flex border resize-none outline-none pl-1 mt-3'
           placeholder='Enter verification code'
         />
 

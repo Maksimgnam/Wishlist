@@ -18,7 +18,9 @@ export interface WishData{
     title: string;
     description:string;
     createdAt: Date;
-    userId:string
+    userId:string,
+    private: boolean,
+    password:string
 }
 export interface WishListData {
   _id:any;
@@ -26,7 +28,9 @@ export interface WishListData {
   description:string;
   createdAt: Date;
   wishes: WishData[],
-   userId:string
+   userId:string,
+   private: boolean,
+
 }
 
 
@@ -66,7 +70,9 @@ export interface viewWish{
 export interface viewWishListData {
   wishId:string
   title: string;
-  wishes:viewWishData[]
+  wishes:viewWishData[],
+  private: boolean,
+  password:string
 }
 export  interface User {
   uid: any,

@@ -59,7 +59,24 @@ const WishHeader:FC<WishHeaderData> = ({params, wishes, setIsFilter}) => {
   return (
     <div className='w-full h-auto  z-50 '>
       <div className='w-full h-auto flex items-center justify-between'>
-      <h2 className='text-xl font-medium'>{wishes?.title}</h2>
+        <div className='w-auto h-auto flex items-center '>
+           <h2 className='text-xl font-medium'>{wishes?.title}</h2>
+{wishes?.private === true ?(
+           <div className='w-20 h-6 bg-orange-300 rounded flex items-center justify-center relative left-3'>
+           <Image src='/private.png' width={14} height={14} alt='' className=' relative right-1'/>
+            <p className='text-mini text-black font-medium '>Private</p>
+           </div>
+):(
+
+  <div className='w-20 h-6 bg-green-300 rounded flex items-center justify-center relative left-3'>
+  <Image src='/public.png' width={18} height={18} alt=''  className=' relative right-1'/>
+   <p className='text-mini text-black font-medium'>Public</p>
+  </div>
+
+)}
+
+        </div>
+
       {/* <Link href={`/view/${params.id}`}>
       </Link> */}
       <div className='w-16 h-6 flex items-center justify-between'>

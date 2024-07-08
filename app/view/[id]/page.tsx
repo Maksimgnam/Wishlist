@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 const page:FC<ViewParams> = ({params}) => {
   return (
     <div className='w-full h-auto  bg-slate-50'>
+      
         <View  params={params}/>
     </div>
   )
