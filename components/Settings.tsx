@@ -6,16 +6,18 @@ import { reauthenticateWithCredential, deleteUser } from 'firebase/auth';
 import { User } from '@/interfaces';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import useStore from '@/store/store';
 
 interface SettingsData{
-  isSettingsChange:()=> void,
+
   isDarkTheme: boolean
 }
 
-const Settings:FC<SettingsData> = ({isSettingsChange, isDarkTheme}) => {
+const Settings:FC<SettingsData> = ({ isDarkTheme}) => {
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter()
   const currentUser = auth.currentUser;
+  const   toggleSettings= useStore((state) => state.toggleSettings);
 
 
 
@@ -79,7 +81,7 @@ const Settings:FC<SettingsData> = ({isSettingsChange, isDarkTheme}) => {
             <div className='w-full h-full '>
               <div className='w-full h-11  flex items-end justify-between    '>
                 <h2 className='sm:text-2xl text-xl'>Settings</h2>
-                <p className='text-xl pb-1 pr-3 ' onClick={isSettingsChange}>x</p>
+                <p className='text-xl pb-1 pr-3 ' onClick={toggleSettings}>x</p>
               </div>
               
               <div className='w-full h-auto mt-1 '>

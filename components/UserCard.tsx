@@ -3,16 +3,18 @@ import React, {FC, useEffect, useState} from 'react';
 import {auth} from '../firebase/config'
 import { User } from '@/interfaces';
 import Image from 'next/image';
+import useStore from '@/store/store';
 
 
 interface UserCardData{
-  isSettingsChange: ()=> void,
+
   toggleTheme:()=> void,
   isDarkTheme:boolean
 }
 
-const UserCard:FC<UserCardData> = ({isSettingsChange,  toggleTheme, isDarkTheme}) => {
+const UserCard:FC<UserCardData> = ({ toggleTheme, isDarkTheme}) => {
   const [user, setUser] = useState<User | null>(null);
+  const   toggleSettings= useStore((state) => state.toggleSettings);
 
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const UserCard:FC<UserCardData> = ({isSettingsChange,  toggleTheme, isDarkTheme}
       <button onClick={toggleTheme} className='w-7 h-8  rounded flex  items-center justify-center'>
         <Image src='/theme1.png' width={17} height={17} alt=''/>
       </button>
-      <button onClick={isSettingsChange} className='w-7 h-8  rounded flex  items-center justify-center'>
+      <button onClick={toggleSettings} className='w-7 h-8  rounded flex  items-center justify-center'>
         <img className='w-6 h-6' src="https://cdn-icons-png.flaticon.com/512/5166/5166607.png" alt="" />
       </button>
 

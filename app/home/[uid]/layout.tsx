@@ -21,8 +21,8 @@ interface HomeLayoutProps {
 
 const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
   const [isDealer, setIsDealer] = useState<boolean | null>(null);
-  const [isSettings, setIsSettings] = useState<boolean>(false);
   const isMenuBarOpen = useStore((state) => state.isMenuBarOpen);
+  const isSettings = useStore((state) => state.isSettings);
 
 
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(() => {
@@ -40,21 +40,17 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
 
   }, []);
 
- 
 
   if (isDealer === null) {
     return    
         
   }
 
-
   if (!isDealer) {
     redirect('/not-found')
   }
 
-  const isSettingsChange = ()=>{
-    setIsSettings(!isSettings)
-  }
+
   const toggleTheme = () => {
     const newTheme = !isDarkTheme;
     setIsDarkTheme(newTheme);
@@ -66,9 +62,8 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
 
   return (
     <div className='w-full'>
-   
     <main className={`w-full h-svh p-5 pt-0 pb-0 ${isDarkTheme ? 'bg-dark-theme text-white' : 'bg-white text-black'} `}>
-      <Header  isSettingsChange={isSettingsChange} isDarkTheme={isDarkTheme} toggleTheme={toggleTheme}/>
+      <Header   isDarkTheme={isDarkTheme} toggleTheme={toggleTheme}/>
       <div className={`w-full h-container flex border rounded-lg ${isDarkTheme ? 'bg-darkness-theme text-white  border-none' : 'bg-white text-black'}  `}>
         <Menu params={params} isDarkTheme={isDarkTheme} />
         <div className={`w-line h-full  ${isDarkTheme ? '' : 'bg-gray-50 '} `}></div>
@@ -79,7 +74,7 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
     </main>
     {
       isSettings  && (
-        <Settings isSettingsChange={isSettingsChange} isDarkTheme={isDarkTheme}/>
+        <Settings  isDarkTheme={isDarkTheme}/>
       )
     }
     {

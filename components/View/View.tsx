@@ -4,12 +4,16 @@ import { Params, viewWishListData } from '@/interfaces';
 import ViewWishCard from './ViewWishCard';
 import { ViewParams } from '@/interfaces';
 import Image from 'next/image';
+import ViewNote from './ViewNote';
+import useStore from '@/store/store';
 
 const View:FC<ViewParams> = ({params}) => {
     const [viewWishes, setViewWishes] = useState<viewWishListData | null>(null)
     const [loading, setLoading] = useState<boolean>(true);
     const [password, setPassword] = useState('');
     const [isAccess, setIsAccess] = useState<boolean>(false)
+    const isViewNote = useStore((state) => state.isViewNote);
+    const toggleViewNote = useStore((state) => state.toggleViewNote);
     useEffect(()=>{
         const fetchViewWishes = async ()=>{
           setLoading(true);
@@ -63,11 +67,11 @@ const View:FC<ViewParams> = ({params}) => {
 
           <div className='w-full h-auto flex items-center'>
             <input type="password" id="myInput" value={password} onChange={(e)=> setPassword(e.target.value)} placeholder={`${viewWishes.title}'s password`} className='w-10/12 h-10 border  text-black rounded outline-none pl-2' />
-            <button onClick={passwordChange} className='w-10 h-10 bg-yellow-300 rounded flex items-center justify-center relative right-2'>
+            <button onClick={passwordChange} className='w-9 h-10 bg-yellow-200 rounded flex items-center justify-center relative right-2 '>
               <img className='w-4 h-4' src="https://cdn-icons-png.freepik.com/256/167/167025.png?semt=ais_hybrid" alt="" />
             </button>
            </div>
-            <button onClick={checkPassword} className='w-full h-10 bg-yellow-300 rounded text-md font-medium flex items-center justify-center'>{`Let's go`}</button>
+            <button onClick={checkPassword} className='w-full h-10 bg-yellow-300 rounded text-md font-medium flex items-center justify-center '>{`Let's go`}</button>
           </div>
         </div>
       ):(
@@ -80,12 +84,21 @@ const View:FC<ViewParams> = ({params}) => {
   
           ):(
             <>
-     
-          <div className='w-full h-auto flex items-center  '>
-            <p className='text-3xl'>🎁</p>
+
+          <div className='w-full h-auto flex items-center justify-between pr-3  '>
+            <div className='w-auto h-auto flex items-center'>
+              <p className='text-3xl'>🎁</p>
               <h2 className='sm:text-2xl text-lg text-red-500 font-medium  mb-1 pl-2'>{viewWishes?.title}<span className='text-black'>{`'s wishes`}</span></h2>
+            </div>
+            <button onClick={toggleViewNote} className='w-16 h-7 bg-yellow-200 rounded flex items-center justify-center'>
+                <Image src='/note.png' width={19} height={19} alt='' className=' relative right-1'/>
+                <p className='text-mini text-black'>Note</p>
+              </button>
+
+
           </div>
-          <div className='w-full h-wish-container mt-7  '>
+          
+          <div className='w-full h-wish-container  mt-7  '>
           {
           viewWishes?.wishes?.map((view)=>(
     <ViewWishCard key={view.wishId}  view={view} params={params}/>
@@ -93,7 +106,13 @@ const View:FC<ViewParams> = ({params}) => {
           ))
         }
           </div>
-  
+
+          {
+            isViewNote &&     <ViewNote/>
+          }
+    
+       
+
         
            </>
             

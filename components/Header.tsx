@@ -4,13 +4,14 @@ import useStore from '@/store/store';
 import UserCard from './UserCard'
 
 interface HeaderData{
-  isSettingsChange: ()=> void,
+
   toggleTheme:()=> void,
   isDarkTheme:boolean
 }
 
-const Header:FC<HeaderData> = ({isSettingsChange, toggleTheme, isDarkTheme}) => {
+const Header:FC<HeaderData> = ({toggleTheme, isDarkTheme}) => {
   const toggleMenuBar = useStore((state) => state.toggleMenuBar);
+
 
   return (
     <div className='w-full  h-12 flex items-center  justify-between p-1 '>
@@ -24,7 +25,7 @@ const Header:FC<HeaderData> = ({isSettingsChange, toggleTheme, isDarkTheme}) => 
     
 
 
-        <UserCard isSettingsChange={isSettingsChange}  toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/> 
+        <UserCard   toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/> 
         <button onClick={toggleMenuBar} className={`w-8 h-8   rounded-md lg:hidden flex flex-wrap items-center justify-between p-1.5   ${isDarkTheme ? 'bg-darkness-theme text-white' : 'bg-stone-50 text-black'}`}>
             <div className={`w-full h-line ${isDarkTheme ? 'bg-white': 'bg-black'}  rounded-md`}></div>
             <div className={`w-full h-line ${isDarkTheme ? 'bg-white': 'bg-black'}  rounded-md`}></div>
