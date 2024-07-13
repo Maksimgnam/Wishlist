@@ -222,14 +222,14 @@ const SignUp: FC<Auth> = ({ isChange }) => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className='w-full h-12 bg-transparent text-white   border rounded outline-none pl-2'
+              className='w-full h-12 bg-transparent   border rounded outline-none pl-2'
               placeholder='Name'
             />
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className='w-full h-12 bg-transparent text-white  border rounded outline-none pl-2'
+              className='w-full h-12 bg-transparent   border rounded outline-none pl-2'
               placeholder='Email'
             />
             <input
