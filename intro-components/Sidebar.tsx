@@ -25,7 +25,7 @@ const SideBar = () => {
         </div>
 
 
-        <p className='xl:text-md text-sm text-black pt-2'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis quibusdam eveniet numquam, aspernatur recusandae eius harum ullam velit laudantium assumenda.</p>
+        <p className='xl:text-md text-md text-black pt-2'>Fristly, you create new account, then add new wishlist ,althoug you can create more than one , then create your wishes and send it to ypur friends, relatives, colleagues.</p>
 
 
         </div>

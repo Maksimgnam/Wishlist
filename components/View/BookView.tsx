@@ -102,27 +102,13 @@ const BookView: FC<BookViewData> = ({ params, bookWish }) => {
           </button>
         </Link>
       </div>
-      <div className='sm:w-64 w-72 sm:h-60 h-64 rounded-lg border shadow-2xl flex flex-col justify-between p-4'>
+      <div className='sm:w-72 w-72 sm:h-60 h-64 rounded-lg border shadow-md flex flex-col justify-between p-4'>
         <div className='w-auto h-auto flex items-center'>
           <div className='w-7 h-7 bg-yellow-200 rounded flex items-center justify-center'>
             <p>🎁</p>
           </div>
           <h2 className='text-lg text-black pl-2'>{wish?.title}</h2>
         </div>
-
-        <div>
-          {wish?.isBooked ? (
-            <div>booked</div>
-          ) : (
-            <div className='flex items-center'>
-              <p className='text-md text-black'>Status:</p>
-              <div className='w-24 h-6 bg-red-200 text-red-400 text-sm rounded flex items-center justify-center ml-2'>
-                not booked
-              </div>
-            </div>
-          )}
-        </div>
-
         <input
           type='email'
           name='to'
@@ -133,7 +119,25 @@ const BookView: FC<BookViewData> = ({ params, bookWish }) => {
           placeholder='Write your email for validation'
         />
 
-    <button onClick={sendVerificationEmail} className='w-full h-11 bg-yellow-300 text-md font-medium rounded'>
+        <div>
+          {wish?.isBooked ? (
+            <div>booked</div>
+          ) : (
+            <div className='w-full flex items-center'>
+              <div className='w-24 h-8 bg-red-200 text-red-400 text-sm rounded flex items-center justify-center '>
+                not booked
+              </div>
+              <div className='w-24 h-8 bg-green-200 text-green-700 text-sm rounded flex items-center justify-center ml-2'>
+                {wish?.grade}
+              </div>
+
+            </div>
+          )}
+        </div>
+
+      
+
+        <button onClick={sendVerificationEmail} className='w-full h-11 bg-yellow-300 text-md font-medium rounded'>
           Book
         </button>
 

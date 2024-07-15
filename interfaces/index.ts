@@ -3,6 +3,7 @@ export interface Wish {
     title: string;
     createdAt: Date;
     isBooked: boolean;
+    grade:string,
     wishId:string
 }
 export interface WishData{
@@ -58,6 +59,7 @@ export interface viewWishData{
   _id:string,
   wishId:string
   title: string;
+  grade:string;
   isBooked: boolean;
   
 }
@@ -65,6 +67,7 @@ export interface viewWish{
   wishId:string
   title: string;
   isBooked: boolean;
+  grade: string
   
 }
 export interface viewWishListData {

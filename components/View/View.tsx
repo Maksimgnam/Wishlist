@@ -90,9 +90,12 @@ const View:FC<ViewParams> = ({params}) => {
               <p className='text-3xl'>🎁</p>
               <h2 className='sm:text-2xl text-lg text-red-500 font-medium  mb-1 pl-2'>{viewWishes?.title}<span className='text-black'>{`'s wishes`}</span></h2>
             </div>
-            <button onClick={toggleViewNote} className='w-16 h-7 bg-yellow-200 rounded flex items-center justify-center'>
-                <Image src='/note.png' width={19} height={19} alt='' className=' relative right-1'/>
-                <p className='text-mini text-black'>Note</p>
+            <button onClick={toggleViewNote} className='w-20 h-8 bg-yellow-100  rounded-lg flex items-center pl-2  '>
+              <div className='w-6 h-6 bg-yellow-200 rounded flex  items-center justify-center '>
+              <Image src='/note.png' width={16} height={16} alt='' className=''/>
+              </div>
+           
+                <p className='text-sm text-black pl-1'>Note</p>
               </button>
 
 

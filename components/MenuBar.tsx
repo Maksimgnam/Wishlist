@@ -21,6 +21,7 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
     const [wishlists, setWishlists] = useState<WishListData[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const toggleMenuBar = useStore((state) => state.toggleMenuBar);
+    const  toggleCreateWishlist = useStore((state) => state.toggleCreateWishlist);
     const uid = user?.uid;
 
 
@@ -129,14 +130,14 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
             }
           
             </div>
-            <Link className='w-full' onClick={toggleMenuBar} href={`/home/${params.uid}/createWishlist`}>
-        <div  className={`w-full h-9   rounded flex items-center  ml-0 mr-0 mt-2  pl-2 ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '} `}>
+
+        <div onClick={()=>{toggleCreateWishlist(), toggleMenuBar()}}  className={`w-full h-9   rounded flex items-center  ml-0 mr-0 mt-2  pl-2 ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '} `}>
           <div className={`w-7 h-7 rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : 'bg-slate-100 '}`}>
             <p className='text-sm'>+</p>
           </div>
           <p className='text-md font-medium pl-1'>New wishlist</p>
         </div>
-        </Link>
+
             </div>
         </div>
     </div>

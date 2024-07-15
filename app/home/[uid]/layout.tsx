@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation';
 import Settings from '@/components/Settings';
 import useStore from '@/store/store';
 import MenuBar from '@/components/MenuBar';
+import CreateWishList from '@/components/CreateWishList';
 
 
 
@@ -23,6 +24,8 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
   const [isDealer, setIsDealer] = useState<boolean | null>(null);
   const isMenuBarOpen = useStore((state) => state.isMenuBarOpen);
   const isSettings = useStore((state) => state.isSettings);
+  const isCreateWishlist = useStore((state) => state.isCreateWishlist);
+  const  toggleCreateWishlist = useStore((state) => state.toggleCreateWishlist);
 
 
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(() => {
@@ -80,7 +83,10 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
     {
       isMenuBarOpen &&  <MenuBar isDarkTheme={isDarkTheme} params={params}/>
     }
-  
+    {
+      isCreateWishlist &&     <CreateWishList params={params} isDarkTheme={isDarkTheme} />
+    }
+
    
     </div>
     

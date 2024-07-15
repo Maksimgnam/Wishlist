@@ -6,10 +6,20 @@ import { Params } from '@/interfaces';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import useStore from '@/store/store';
+
+interface  CreateWishListData{
+    params: {
+        id: any;
+        uid: any;
+      };
+      isDarkTheme:boolean
+}
 
 
-const CreateWishList:FC<Params> = ({params}) => {
+const CreateWishList:FC<CreateWishListData> = ({params, isDarkTheme}) => {
     const router = useRouter()
+    const  toggleCreateWishlist = useStore((state) => state.toggleCreateWishlist);
     const [wishListData, setWishListData] = useState<WishList>({
         title: '',
         description:'',
@@ -59,7 +69,10 @@ const CreateWishList:FC<Params> = ({params}) => {
             });
             setPassword('');
             setIsPrivate(false);
-            router.push(`/home/${params.uid}`)
+
+            window.location.reload()
+            // router.push(`/home/${params.uid}`)
+            toggleCreateWishlist()
         
   
   
@@ -95,15 +108,16 @@ const CreateWishList:FC<Params> = ({params}) => {
    
 
   return (
+    <div className='w-full h-svh bg-dark absolute flex items-center justify-center top-0'>
     <div className='w-auto h-auto  flex flex-col relative  bottom-14'>
-    <div className='w-80 h-auto flex justify-end m-5  '>
-        <Link href={`/home/${params.uid}`}>
-            <button className='w-6 h-6 bg-black rounded-full text-center text-white text-mini font-medium '>x</button>
-        </Link>
+    <div className={`w-80 h-auto    flex justify-end m-5  `}>
+
+            <button onClick={toggleCreateWishlist} className='w-6 h-6 bg-black rounded-full text-center text-white text-mini font-medium '>x</button>
+
 
     </div>
    
-    <div className='w-80 min-h-96  h-auto   border shadow-2xl rounded-xl flex flex-col items-center justify-between p-3 ml-4'>
+    <div className={`w-80 min-h-96  h-auto   border shadow-2xl rounded-xl ${isDarkTheme ? 'bg-darkness-theme text-white  border-none' : 'bg-white text-black'}   flex flex-col items-center justify-between p-3 ml-4`}>
         <div className='w-full h-10 flex items-center'>
             <div className='w-7 h-7 bg-yellow rounded flex items-center justify-center'>
                 <p className='text-sm  text-white'>W</p>
@@ -136,6 +150,7 @@ const CreateWishList:FC<Params> = ({params}) => {
         <button onClick={addWishList} className='w-full  h-10 bg-yellow rounded-md mt-3'>
             <p className='text-md font-medium text-white'>Add WishList</p>
         </button>
+    </div>
     </div>
     </div>
   )
