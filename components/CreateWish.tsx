@@ -90,14 +90,7 @@ const CreateWish:FC<Params> = ({params}) => {
 
 
         </div>
-        {/* <input
-                    type="range"
-                    className=''
-                    min={0}
-                    max={5}
-                    value={wishData.grade}
-                    onChange={handleRangeChange}
-                    /> */}
+
 
 
 
