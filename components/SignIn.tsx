@@ -22,6 +22,10 @@ const SignIn:FC<Auth>  = ({isChange}) => {
         })
         .catch((error) => {
             console.log(error);
+            if(error?.toString().slice(30) ==='(auth/invalid-credential).'){
+              alert('Wrong email or password. Try again')
+            }
+
         });
 }
 

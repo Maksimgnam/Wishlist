@@ -76,12 +76,12 @@ const Settings:FC<SettingsData> = ({ isDarkTheme}) => {
 
   return (
     <div className={`w-full h-svh bg-dark flex items-center justify-center  absolute top-0`}> 
-        <div className={`sm:w-2/5 w-10/12 h-3/6 bg-white ${isDarkTheme ? 'bg-darkness-theme   text-white border-none ' : 'bg-white text-black border-2  '} rounded-lg shadow-2xl flex   sm:pl-6 sm:pr-6 pl-3 pr-3`}>
+        <div className={`sm:w-2/5 w-10/12 h-2/5 bg-white pt-1 ${isDarkTheme ? 'bg-darkness-theme   text-white border-none ' : 'bg-white text-black border-2  '} rounded-lg shadow-2xl flex   sm:pl-6 sm:pr-6 pl-3 pr-3`}>
         
             <div className='w-full h-full '>
               <div className='w-full h-11  flex items-end justify-between    '>
                 <h2 className='sm:text-2xl text-xl'>Settings</h2>
-                <p className='text-xl pb-1 pr-3 ' onClick={toggleSettings}>x</p>
+                <p className='text-xl cursor-pointer pb-1 pr-3 ' onClick={toggleSettings}>x</p>
               </div>
               
               <div className='w-full h-auto mt-1 '>

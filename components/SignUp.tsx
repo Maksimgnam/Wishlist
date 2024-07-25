@@ -44,26 +44,52 @@ const SignUp: FC<Auth> = ({ isChange }) => {
     }
   };
 
-  const signUp = async (event: React.FormEvent) => {
-    event.preventDefault();
-    try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
-      if (res && res.user) {
-        await updateProfile(res.user, { displayName: name,} );
-        setEmail('');
-        setPassword('');
-        setName('');
-        setDateOfBirth('')
-        const code = generateVerificationCode();
-        setVerificationCode(code);
-        sendVerificationEmail(code);
-      } else {
-        console.error('Authentication failed');
+    const signUp = async (event: React.FormEvent) => {
+      
+        if (name.trim()===''){
+          alert('Please write your name')
+          
+        }else{
+
+
+      
+      
+      event.preventDefault();
+      try {
+        const res = await createUserWithEmailAndPassword(auth, email, password);
+        if (res && res.user) {
+          await updateProfile(res.user, { displayName: name,} );
+          setEmail('');
+          setPassword('');
+          setName('');
+          setDateOfBirth('')
+          const code = generateVerificationCode();
+          setVerificationCode(code);
+          sendVerificationEmail(code);
+        } else {
+          console.error('Authentication failed');
+        }
+      } catch (error) {
+        console.error(error);
+        if(error?.toString().slice(30) ===' (auth/email-already-in-use).'){
+          alert('Email already in use. Try again')
+        }
+  
+        if(error?.toString().slice(30) ==='Error (auth/invalid-email).'){
+          alert('Invalid email use another')
+        }
+        if(error?.toString().slice(30) ==='Password should be at least 6 characters (auth/weak-password).'){
+          alert('Password should be at least 6 characters (auth/weak-password).')
+        }
+  
+        alert(error?.toString().slice(25))
+  
       }
-    } catch (error) {
-      console.error(error);
     }
-  };
+    };
+
+  
+
 
   const verifyCode = () => {
     if (enteredCode === verificationCode) {

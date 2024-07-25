@@ -3,12 +3,15 @@ import React, { FC, useState, useEffect } from 'react'
 import WishHeader from './WishHeader'
 import WishContainer from './WishContainer';
 import { WishData, WishListData } from '@/interfaces';
+import useStore from '@/store/store';
+import WishesData from './WishesData';
 import { Params } from '@/interfaces';
 
 const Wishes:FC<Params> =  ({params}) => {
   const [wishes, setWishes] = useState<WishListData | null>(null);
   const [isFilter, setIsFilter] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
+  const  isWishesData = useStore((state) => state.isWishesData);
   useEffect(()=>{
     const fetchWishes = async ()=>{
       setLoading(true);
@@ -32,6 +35,8 @@ const Wishes:FC<Params> =  ({params}) => {
 
 
   return (
+    <>
+   
     <div className='w-full  h-full p-8 '>
       {loading ? (
         <div className='w-full min-h-screen flex items-center justify-center'>
@@ -50,6 +55,11 @@ const Wishes:FC<Params> =  ({params}) => {
       )}
      
     </div>
+    {
+      isWishesData  &&  <WishesData  wishes={wishes} />
+    }
+
+    </>
   )
 }
 

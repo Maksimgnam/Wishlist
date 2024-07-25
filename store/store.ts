@@ -4,7 +4,8 @@ interface State {
   isMenuBarOpen: boolean;
   isViewNote: boolean,
   isSettings:boolean,
-  isCreateWishlist:boolean
+  isCreateWishlist:boolean,
+  isWishesData:boolean
 }
 
 interface Actions {
@@ -20,6 +21,7 @@ const useStore = create<State & Actions>((set) => ({
   isViewNote: false,
   isSettings:false,
   isCreateWishlist: false,
+  isWishesData: false,
   toggleMenuBar: () => set((state) => ({ isMenuBarOpen: !state.isMenuBarOpen  })),
   closeMenuBar: () => set(() => ({ isMenuBarOpen: false })),
   toggleViewNote:  () => set((state) => ({ isViewNote: !state.isViewNote  })),

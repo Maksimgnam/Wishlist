@@ -9,6 +9,7 @@ import Settings from '@/components/Settings';
 import useStore from '@/store/store';
 import MenuBar from '@/components/MenuBar';
 import CreateWishList from '@/components/CreateWishList';
+import WishesData from '@/components/Wishes/WishesData';
 
 
 
@@ -86,6 +87,7 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
     {
       isCreateWishlist &&     <CreateWishList params={params} isDarkTheme={isDarkTheme} />
     }
+
 
    
     </div>
