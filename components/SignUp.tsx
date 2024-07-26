@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider,signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -120,6 +120,22 @@ const SignUp: FC<Auth> = ({ isChange }) => {
       });
  
   };
+  const twitterSignIn = () => {
+    const provider = new TwitterAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        const uid = user.uid;
+        Cookies.set('dealer', 'dealer', { expires: 7 }); 
+        router.push(`/home/${uid}`); 
+        console.log('User signed in:', user);
+      })
+      .catch((error) => {
+        console.error('Error signing in with Twitter:', error);
+      });
+    }
+
+    
 
   return (
 <div  className='w-full h-svh flex items-center justify-center'>
@@ -153,6 +169,11 @@ const SignUp: FC<Auth> = ({ isChange }) => {
           </div>
           <button onClick={signUp} className='w-full h-12 rounded bg-black'>
             <p className='text-lg text-white font-medium'>Sign up</p>
+          </button>
+     
+          <button onClick={twitterSignIn} className='w-full h-12 rounded bg-slate-50 flex items-center justify-center'>
+            <Image src='/twitter.png' width={24} height={24} alt='' className=' relative right-3'/>
+            <p className='text-md text-black font-medium'>Sign up with Twitter</p>
           </button>
           <button onClick={googleSignIn} className='w-full h-12 rounded bg-slate-50 flex items-center justify-center'>
             <Image src='/google-logo.png' width={24} height={24} alt='' className=' relative right-3'/>

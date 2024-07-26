@@ -28,7 +28,8 @@ const config: Config = {
         "menu":"94vh",
         "wish-container":"75vh",
         "line":"2px",
-        'signup-card':'500px'
+        'signup-card':'525px',
+        'signin-card':'470px'
       },
       fontSize:{
         'mini':"12px"

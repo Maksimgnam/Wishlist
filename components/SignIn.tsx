@@ -1,7 +1,7 @@
 "use client"
 import React, { FC, useState } from 'react';
 import { signInWithEmailAndPassword,  UserCredential} from 'firebase/auth';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider,TwitterAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/config'
 import { useRouter } from 'next/navigation';
 import { Auth } from '@/interfaces';
@@ -48,11 +48,25 @@ const SignIn:FC<Auth>  = ({isChange}) => {
       });
  
   };
+  const twitterSignIn = () => {
+    const provider = new TwitterAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        const uid = user.uid;
+        Cookies.set('dealer', 'dealer', { expires: 7 }); 
+        router.push(`/home/${uid}`); 
+        console.log('User signed in:', user);
+      })
+      .catch((error) => {
+        console.error('Error signing in with Twitter:', error);
+      });
+    }
 
 
 
   return (
-    <div className='w-80 h-96 bg-white border    rounded-xl shadow-xl flex flex-col  items-center  justify-between p-6'>
+    <div className='w-80 h-signin-card bg-white border    rounded-xl shadow-xl flex flex-col  items-center  justify-between p-6'>
         <h2 className='text-2xl text-black  font-medium'> Sign in</h2>
         <div className='w-full h-28 flex flex-col justify-between' >
             <input type="email" value={email} onChange={(e)=> setEmail(e.target.value)} className='w-full h-12 bg-transparent text-black border   rounded  outline-none pl-2' placeholder='Email'  />
@@ -63,11 +77,16 @@ const SignIn:FC<Auth>  = ({isChange}) => {
         <button onClick={signIn}   className='w-full h-12  rounded bg-black'>
           <p className='text-lg text-white font-medium'>Sign in</p>
         </button>
+        <button onClick={twitterSignIn} className='w-full h-12 rounded bg-slate-50 flex items-center justify-center'>
+            <Image src='/twitter.png' width={24} height={24} alt='' className=' relative right-3'/>
+            <p className='text-md text-black font-medium'>Sign up with Twitter</p>
+          </button>
         <button onClick={googleSignIn} className='w-full h-12 rounded bg-slate-50 flex items-center justify-center'>
 
             <Image src='/google-logo.png' width={24} height={24} alt='' className=' relative right-3'/>
             <p className='text-md text-black font-medium'>Sign in with Google</p>
-          </button>
+        </button>
+  
   
         <div className='w-full h-6 flex items-center  justify-end' >
         <div className='w-auto h-auto flex'>

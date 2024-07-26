@@ -97,19 +97,22 @@ const Settings:FC<SettingsData> = ({ isDarkTheme}) => {
                   </button> */}
                 </div>
           
-                <div className='w-full h-10  flex items-center p-2 pt-3 '>
-                <div className='w-auto h-auto flex items-center '>
-                  <button className='w-6 h-6 bg-yellow-300 text-black rounded flex items-center  justify-center'>
-                     <img className='w-3 h-3' src="https://cdn.iconscout.com/icon/free/png-256/free-email-2026367-1713640.png" alt="" />
-                  </button>
-                  <p className='text-md font-medium pl-2'>{user?.email}</p>
-                  </div>
-                  {/* <button className='w-5 h-5 bg-yellow-200 rounded flex items-center  justify-center ml-4'>
-                    <Image src='/edit.png' width={13} height={13} alt=''/>
-                  </button> */}
+          {
+            user?.email &&     <div className='w-full h-10  flex items-center p-2 pt-3 '>
+            <div className='w-auto h-auto flex items-center '>
+              <button className='w-6 h-6 bg-yellow-300 text-black rounded flex items-center  justify-center'>
+                 <img className='w-3 h-3' src="https://cdn.iconscout.com/icon/free/png-256/free-email-2026367-1713640.png" alt="" />
+              </button>
+              <p className='text-md font-medium pl-2'>{user?.email}</p>
+              </div>
+              {/* <button className='w-5 h-5 bg-yellow-200 rounded flex items-center  justify-center ml-4'>
+                <Image src='/edit.png' width={13} height={13} alt=''/>
+              </button> */}
 
-                  
-                </div>
+              
+            </div>
+          }
+            
                 <div className='w-full h-10  flex items-center p-2 pt-3 '>
                   <div className='w-auto h-auto flex items-center '>
 

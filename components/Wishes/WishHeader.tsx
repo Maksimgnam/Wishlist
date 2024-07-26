@@ -69,7 +69,7 @@ const WishHeader:FC<WishHeaderData> = ({params, wishes, setIsFilter}) => {
            </div>
             ):(
 
-  <div className='w-20 h-6 bg-green-300 rounded flex items-center justify-center relative left-3'>
+  <div className='w-20 h-6 bg-green-300 sm:flex hidden rounded  items-center justify-center relative left-3'>
   <Image src='/public.png' width={18} height={18} alt=''  className=' relative right-1'/>
    <p className='text-mini text-black font-medium'>Public</p>
   </div>
