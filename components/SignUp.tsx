@@ -1,7 +1,9 @@
 import React, { FC, useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 import { Auth } from '@/interfaces';
 import Cookies from 'js-cookie';
@@ -101,43 +103,65 @@ const SignUp: FC<Auth> = ({ isChange }) => {
     }
   };
 
+
+  const googleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        const uid = user.uid;
+        Cookies.set('dealer', 'dealer', { expires: 7 }); 
+        router.push(`/home/${uid}`); 
+        console.log('User signed in:', user);
+
+      })
+      .catch((error) => {
+        console.error('Error signing in with Google:', error);
+      });
+ 
+  };
+
   return (
 <div  className='w-full h-svh flex items-center justify-center'>
       {!isCodeSent ? (
-        <div className='w-80 h-96    border  rounded-xl flex flex-col items-center justify-between p-6'>
-        <h2 className='text-2xl  font-medium'>Sign up</h2>
+        <div className='w-80 sm:h-3/5 h-4/6 bg-white    border  rounded-xl shadow-xl flex flex-col items-center justify-between p-6'>
+        <h2 className='text-2xl text-black  font-medium'>Sign up</h2>
      
           <div className='w-full h-48 flex flex-col justify-between'>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className='w-full h-12 bg-transparent   border rounded outline-none pl-2'
+              className='w-full h-12 bg-transparent text-black   border rounded outline-none pl-2'
               placeholder='Name'
             />
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className='w-full h-12 bg-transparent   border rounded outline-none pl-2'
+              className='w-full h-12 bg-transparent text-black   border rounded outline-none pl-2'
               placeholder='Email'
             />
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className='w-full h-12 bg-transparent border outline-none pl-2  '
+              className='w-full h-12 bg-transparent text-black border rounded outline-none pl-2  '
               placeholder='Password'
             />
 
           </div>
-          <button onClick={signUp} className='w-full h-12 rounded bg-yellow'>
+          <button onClick={signUp} className='w-full h-12 rounded bg-black'>
             <p className='text-lg text-white font-medium'>Sign up</p>
+          </button>
+          <button onClick={googleSignIn} className='w-full h-12 rounded bg-slate-50 flex items-center justify-center'>
+            <Image src='/google-logo.png' width={24} height={24} alt='' className=' relative right-3'/>
+            <p className='text-md text-black font-medium'>Sign up with Google</p>
           </button>
           <div className='w-full h-6 flex items-center justify-end'>
         <div className='w-auto h-auto flex'>
           <p className='text-sm font-medium text-blue-500 cursor-pointer mr-3'>Sign up</p>
-          <p onClick={isChange} className='text-sm  font-medium cursor-pointer'>Sign in</p>
+          <p onClick={isChange} className='text-sm text-black  font-medium cursor-pointer'>Sign in</p>
         </div>
       </div>
         </div>
