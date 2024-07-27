@@ -27,6 +27,7 @@ const config: Config = {
         "container":"92vh",
         "menu":"94vh",
         "wish-container":"75vh",
+        "small-wish-container":'72vh',
         "line":"2px",
         'signup-card':'525px',
         'signin-card':'470px'

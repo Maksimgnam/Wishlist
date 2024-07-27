@@ -35,7 +35,7 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
   
 
   return (
-    <div className='w-full h-96  relative  top-4      '>
+    <div className='w-full h-auto relative  sm:top-4  top-1     '>
     <div className="w-full h-auto flex items-center justify-between m-2 mt-3 ml-0 p-1 pt-0 pb-0">
         <div className='w-auto h-auto sm:flex hidden items-center'>
 
@@ -61,7 +61,7 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
      
 {
   lenghtOf > 0 ?(
-    <div className='w-full h-wish-container flex flex-wrap justify-center sm:justify-start overflow-y-scroll p-1 pl-0'>
+    <div className='w-full sm:h-wish-container  h-small-wish-container flex flex-wrap justify-center sm:justify-start overflow-y-scroll p-1 pl-0'>
       {
        filteredWishes?.map((wish:WishData)=>(
           <WishCard key={wish.id} wish={wish} onDelete={wishDeleted} params={params}/>
