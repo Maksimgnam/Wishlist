@@ -60,6 +60,7 @@ export interface viewWishData{
   wishId:string
   title: string;
   grade:string;
+
   isBooked: boolean;
   
 }
@@ -73,6 +74,7 @@ export interface viewWish{
 export interface viewWishListData {
   wishId:string
   title: string;
+  description:string,
   wishes:viewWishData[],
   private: boolean,
   password:string

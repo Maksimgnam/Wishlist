@@ -6,12 +6,16 @@ import { ViewParams } from '@/interfaces';
 import Image from 'next/image';
 import ViewNote from './ViewNote';
 import useStore from '@/store/store';
+import Link from 'next/link';
 
 const View:FC<ViewParams> = ({params}) => {
     const [viewWishes, setViewWishes] = useState<viewWishListData | null>(null)
     const [loading, setLoading] = useState<boolean>(true);
     const [password, setPassword] = useState('');
-    const [isAccess, setIsAccess] = useState<boolean>(false)
+    const [isAccess, setIsAccess] = useState<boolean>(false);
+
+    const [isSticker, setIsSticker] = useState<boolean>(false)
+    const [isCard, setIsCard] = useState<boolean>(true)
     const isViewNote = useStore((state) => state.isViewNote);
     const toggleViewNote = useStore((state) => state.toggleViewNote);
     useEffect(()=>{
@@ -90,28 +94,81 @@ const View:FC<ViewParams> = ({params}) => {
               <p className='text-3xl'>🎁</p>
               <h2 className='sm:text-2xl text-lg text-red-500 font-medium  mb-1 pl-2'>{viewWishes?.title}<span className='text-black'>{`'s wishes`}</span></h2>
             </div>
-            <button onClick={toggleViewNote} className='w-20 h-8 bg-yellow-100  rounded-lg flex items-center pl-2  '>
-              <div className='w-6 h-6 bg-yellow-200 rounded flex  items-center justify-center '>
+            <div className='w-auto h-auto flex items-center'>
+            <div className='w-14 h-auto flex justify-between mr-2'>
+              <button onClick={()=>{
+                setIsSticker(true)
+                setIsCard(false)
+              }} className='w-6 h-6 bg-green-200 rounded text-black text-mini  flex items-center justify-center'>
+                   <Image src='/cards.png' width={16} height={16} alt='' className=''/>
+              </button>
+              <button onClick={()=>{
+                setIsSticker(false)
+                setIsCard(true)
+              }} className='w-6 h-6 bg-green-200 rounded  text-black text-mini flex items-center justify-center'>
+                  <Image src='/stickers.webp' width={16} height={16} alt='' className=''/>
+              </button>
+            </div>
+            <button onClick={toggleViewNote} className='w-20 h-8 bg-green-100  rounded-lg flex items-center pl-2  '>
+              <div className='w-6 h-6 bg-green-200 rounded flex  items-center justify-center '>
               <Image src='/note.png' width={16} height={16} alt='' className=''/>
               </div>
            
                 <p className='text-sm text-black pl-1'>Note</p>
               </button>
 
+            </div>
+           
+       
+
 
           </div>
+{
+  isSticker &&  <div className='w-full h-wish-container  flex justify-center  '>
+  <div className='sm:w-11/12 w-full h-full flex  flex-wrap justify-center  mt-7'>
+
+    {
+      viewWishes?.wishes?.map((view)=>(
+        <Link key={view._id} href={`/view/${params.id}/${view.wishId}`}> 
+          <div key={view._id} className={`w-60 h-56 ${view.isBooked ? 'bg-green-300 border-none hover:shadow-none' : 'bg-gray-100 border text-black'}  rounded-xl hover:shadow-xl flex items-center justify-center m-3 `}>
+            {
+              view.isBooked ? (
+                <p className='text-2xl break-words'>booked</p>
+
+              ):(
+                <p className='text-2xl break-words'>{view.title}</p>
+
+              )
+            }
+
+          </div>
+        </Link>
+    ))
+  }
+</div>
+
+</div>
+}
+{
+  isCard  &&  <div className='w-full h-wish-container  flex justify-center  '>
+  <div className='sm:w-11/12 w-full h-full flex  flex-wrap justify-center  mt-7'>
+
+    {
+      viewWishes?.wishes?.map((view)=>(
+<ViewWishCard key={view._id} view={view} params={params}/>
+    ))
+  }
+</div>
+
+</div>
+
+}
+
+
           
-          <div className='w-full h-wish-container  mt-7  '>
-          {
-          viewWishes?.wishes?.map((view)=>(
-    <ViewWishCard key={view.wishId}  view={view} params={params}/>
-  
-          ))
-        }
-          </div>
 
           {
-            isViewNote &&     <ViewNote/>
+            isViewNote &&     <ViewNote description={viewWishes?.description}/>
           }
     
        
