@@ -22,7 +22,7 @@ const Header:FC<HeaderData> = ({toggleTheme, isDarkTheme}) => {
             <img className='w-3 h-3' src='https://cdn-icons-png.freepik.com/512/4305/4305337.png' alt='' />
             </div> */}
 
-            <p  className='text-md font-medium pl-1'>CoolDay 😎</p>
+            <p  className='text-md font-medium pl-1'>Wishlist 😎</p>
 
         </div>
         <div className='w-auto h-auto flex '>
