@@ -71,11 +71,11 @@ const View:FC<ViewParams> = ({params}) => {
 
           <div className='w-full h-auto flex items-center'>
             <input type="password" id="myInput" value={password} onChange={(e)=> setPassword(e.target.value)} placeholder={`${viewWishes.title}'s password`} className='w-10/12 h-10 border  text-black rounded outline-none pl-2' />
-            <button onClick={passwordChange} className='w-9 h-10 bg-yellow-200 rounded flex items-center justify-center relative right-2 '>
+            <button onClick={passwordChange} className='w-9 h-10 bg-green-300 rounded flex items-center justify-center relative right-2 '>
               <img className='w-4 h-4' src="https://cdn-icons-png.freepik.com/256/167/167025.png?semt=ais_hybrid" alt="" />
             </button>
            </div>
-            <button onClick={checkPassword} className='w-full h-10 bg-yellow-300 rounded text-md font-medium flex items-center justify-center '>{`Let's go`}</button>
+            <button onClick={checkPassword} className='w-full h-10 bg-green-400 rounded text-md font-medium flex items-center justify-center '>{`Let's go`}</button>
           </div>
         </div>
       ):(

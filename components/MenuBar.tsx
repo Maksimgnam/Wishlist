@@ -69,7 +69,7 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
                 <div className='w-auto h-auto  rounded flex items-center p-1'>
       {
          user &&     <>
-                 <div className='w-8 h-8 bg-yellow rounded flex items-center justify-center'>
+                 <div className='w-8 h-8 bg-green-400 rounded flex items-center justify-center'>
             <p className='text-md text-black  font-medium '>{user?.displayName.slice(0, 1)}</p>
         </div>
         <p className='text-lg font-medium  pl-2 '>{user?.displayName}</p>
@@ -84,8 +84,8 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
             <div className='w-full h-auto mt-2'>
               <Link href={`/home/${params.uid}`}>
             <div onClick={toggleMenuBar}  className='w-full h-auto  pl-1'>
-            <div className={`w-full h-12  rounded flex items-center  ml-1 mr-0  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
-          <div className={`w-8 h-8 rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : ' bg-slate-100'}`}>
+            <div className={`w-full h-10  rounded flex items-center  ml-1 mr-0  ${isDarkTheme ? 'hover:bg-green-400  hover:text-black ' : 'hover:bg-slate-100 '}`}>
+          <div className={`w-8 h-8 rounded flex items-center justify-center ${isDarkTheme ? 'bg-green-400 text-black ' : ' bg-slate-100'}`}>
             <img className={`${isDarkTheme ? 'w-4 h-4 ' : ' w-5 h-5 '}`} src='https://static.thenounproject.com/png/423483-200.png' alt='' />
           </div>
           <p className='text-md font-medium pl-1'>Home</p>
@@ -94,7 +94,7 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
             </Link>
             <div className='w-full h-auto  pl-1'>
             <div className={`w-full h-12  rounded flex items-center  ml-1 mr-0  ${isDarkTheme ? '  ' : 'hover:bg-slate-100 '}`}>
-                <div className={`w-8 h-8  rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 ' : ' bg-slate-100'}`}>
+                <div className={`w-8 h-8  rounded flex items-center justify-center ${isDarkTheme ? 'bg-green-400 ' : ' bg-slate-100'}`}>
                   <p><img className={`${isDarkTheme ? 'w-4 h-4 ' : ' w-5 h-5 '}`} src='https://cdn-icons-png.freepik.com/512/4305/4305337.png' alt='' /></p>
                 </div>
               <p className='text-md  font-medium pl-1'>My wishlists</p>
@@ -131,8 +131,8 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
           
             </div>
 
-        <div onClick={()=>{toggleCreateWishlist(), toggleMenuBar()}}  className={`w-full h-9   rounded flex items-center  ml-0 mr-0 mt-2  pl-2 ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '} `}>
-          <div className={`w-7 h-7 rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : 'bg-slate-100 '}`}>
+        <div onClick={()=>{toggleCreateWishlist(), toggleMenuBar()}}  className={`w-full h-9   rounded flex items-center  ml-0 mr-0 mt-2  pl-2 ${isDarkTheme ? 'hover:bg-green-400  hover:text-black ' : 'hover:bg-slate-100 '} `}>
+          <div className={`w-7 h-7 rounded flex items-center justify-center ${isDarkTheme ? 'bg-green-400 text-black ' : 'bg-slate-100 '}`}>
             <p className='text-sm'>+</p>
           </div>
           <p className='text-md font-medium pl-1'>New wishlist</p>
