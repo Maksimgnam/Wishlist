@@ -19,12 +19,9 @@ const Header:FC<HeaderData> = ({toggleTheme, isDarkTheme}) => {
         <div className='w-auto h-auto flex items-center'>
 
 
-<<<<<<< HEAD
 
             <p  className='text-md text-green-300 font-medium pl-1'>Wishlist 😎</p>
-=======
-            <p  className='text-md font-medium pl-1'>Wishlist 😎</p>
->>>>>>> b10e4297e2f34971523bb7ee64cf5cfea0d37db4
+
 
         </div>
         <div className='w-auto h-auto flex '>
