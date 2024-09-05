@@ -1,11 +1,19 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 import Sidebar from './Sidebar'
 import Header from './Header'
 import About from './About'
 import Motos from './Motos'
 import Footer from './Footer'
+import { useRouter } from 'next/navigation'
 
 const Main = () => {
+  const router = useRouter();
+
+
+  useEffect(()=>{
+    router.push('/registration')
+  }, [])
   return (
     <div className='w-full h-svh'>
     <div className='w-full h-svh flex  '>
