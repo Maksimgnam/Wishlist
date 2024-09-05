@@ -36,7 +36,7 @@ const WishListCard:FC<WishListCardData> = ({title, isDarkTheme, id, params}) => 
     }
   };
   return (
-    <div  className={`w-full h-9 hover:bg-slate-50 rounded flex items-center justify-between   pl-1 pr-5  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
+    <div  className={`w-full h-9 hover:bg-green-300 rounded flex items-center justify-between   pl-1 pr-5  ${isDarkTheme ? 'hover:bg-green-300  hover:text-black ' : 'hover:bg-slate-100 '}`}>
      
      <Link onClick={closeMenuBar}  className='w-full' key={id} href={`/home/${params.uid}/wishes/${id}`}>
         <li className='text-sm  pl-1 '>{title}</li>

@@ -87,7 +87,7 @@ const Settings:FC<SettingsData> = ({ isDarkTheme}) => {
               <div className='w-full h-auto mt-1 '>
                 <div className='w-full h-10  flex items-center  p-2 pt-3 '>
                 <div className='w-auto h-auto flex items-center   '>
-                  <button className='w-7 h-7 bg-yellow-300 text-black rounded'>
+                  <button className='w-7 h-7 bg-green-300 text-black rounded'>
                     <p className='text-sm font-medium'>{user?.displayName.slice(0, 1)}</p>
                   </button>
                     <p className='text-lg font-medium pl-2'>{user?.displayName}</p>
@@ -100,7 +100,7 @@ const Settings:FC<SettingsData> = ({ isDarkTheme}) => {
           {
             user?.email &&     <div className='w-full h-10  flex items-center p-2 pt-3 '>
             <div className='w-auto h-auto flex items-center '>
-              <button className='w-6 h-6 bg-yellow-300 text-black rounded flex items-center  justify-center'>
+              <button className='w-6 h-6 bg-green-300 text-black rounded flex items-center  justify-center'>
                  <img className='w-3 h-3' src="https://cdn.iconscout.com/icon/free/png-256/free-email-2026367-1713640.png" alt="" />
               </button>
               <p className='text-md font-medium pl-2'>{user?.email}</p>
@@ -117,7 +117,7 @@ const Settings:FC<SettingsData> = ({ isDarkTheme}) => {
                   <div className='w-auto h-auto flex items-center '>
 
             
-                  <button className='w-6 h-6 bg-yellow-300 text-black rounded flex items-center  justify-center'>
+                  <button className='w-6 h-6 bg-green-300 text-black rounded flex items-center  justify-center'>
                      <img className='w-4 h-4' src="https://cdn-icons-png.flaticon.com/512/783/783886.png" alt="" />
                   </button>
                   <p className='text-sm font-medium pl-2'>{user?.uid}</p>

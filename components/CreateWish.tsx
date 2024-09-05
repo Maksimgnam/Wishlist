@@ -76,7 +76,7 @@ const CreateWish:FC<Params> = ({params}) => {
     </div>
     <div className='w-72 h-64  border shadow-2xl  rounded-xl flex flex-col items-center justify-between p-3 sm:m-0 ml-4'>
         <div className='w-full h-10 flex items-center'>
-            <div className='w-7 h-7 bg-yellow rounded flex items-center justify-center'>
+            <div className='w-7 h-7 bg-green-400 rounded flex items-center justify-center'>
                 <p className='text-sm  text-white'>W</p>
             </div>
             <h2 className='text-md pl-2 '>New wish </h2>
@@ -104,7 +104,7 @@ const CreateWish:FC<Params> = ({params}) => {
                     </select>
 
                 </div>
-        <button onClick={addWish} className='w-full  h-10 bg-yellow rounded-md mt-3'>
+        <button onClick={addWish} className='w-full  h-10 bg-green-400 rounded-md mt-3'>
             <p className='text-md font-medium text-white'>Add Wish</p>
         </button>
 

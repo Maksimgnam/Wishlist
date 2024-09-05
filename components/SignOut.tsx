@@ -22,7 +22,7 @@ const SignOut = () => {
       }
   return (
     <div className='w-full h-auto  mb-3 '>
-        <button  onClick={signOut} className='w-full h-11 bg-yellow rounded flex items-center justify-center '>
+        <button  onClick={signOut} className='w-full h-11  bg-green-400 rounded flex items-center justify-center '>
             <p className='text-md text-white font-medium'>Sign out</p>
         </button>
     </div>

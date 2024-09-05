@@ -13,12 +13,16 @@ const About = () => {
         });
       }, []);
   return (
-    <div className='w-full h-auto '>
-        <div className='w-full h-auto '>
+
+        <div className='w-full h-svh  bg-green-200 text-black p-6'>
             <div data-aos="fade-left"   data-aos-delay="50" className='w-auto flex items-center'>
-         
-                <p className='text-lg  font-medium pl-2'>About us </p>
+         <div className='w-auto h-auto flex items-center'>
+         <p className='text-3xl  font-medium pl-2'>About us </p>
                 <span className='text-2xl  pl-2 '>😊</span>
+
+         </div>
+
+               
              
             </div>
             <div data-aos="fade-left"   data-aos-delay="150"  className='w-full h-auto mt-3 '>
@@ -62,7 +66,7 @@ const About = () => {
 
 
        
-    </div>
+
   )
 }
 

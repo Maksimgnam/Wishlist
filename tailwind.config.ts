@@ -21,7 +21,8 @@ const config: Config = {
       },
       width:{
         'line':"2px",
-        'sidebar':'23%'
+        'sidebar':'23%',
+        'card':'352px'
       },
       height:{
         "container":"92vh",

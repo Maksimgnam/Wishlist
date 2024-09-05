@@ -13,7 +13,7 @@ const Motos = () => {
         });
       }, []);
   return (
-    <div className='w-full h-auto mt-5 '>
+    <div className='w-full h-svh  bg-yellow-100 text-black '>
     <div data-aos="fade-left"  data-aos-delay="600"  className='w-auto flex items-center'>
  
         <p className='text-lg font-medium pl-2'>Our Motos </p>
@@ -21,7 +21,7 @@ const Motos = () => {
      
     </div>
     <div className='w-full h-auto flex  flex-wrap p-3  animation-fadeIn'>
-        <div data-aos="fade-up"  data-aos-delay="650"  className='w-56 sm:h-28 hover:shadow-l text-blackg rounded border p-3 pr-0 m-3 mt-1 ml-2  '>
+        <div   data-aos-delay="650"  className='w-56 sm:h-28 hover:shadow-l text-blackg rounded border p-3 pr-0 m-3 mt-1 ml-2  '>
             <div className='w-full h-auto flex  items-center'>
                 <div className='w-7 h-7 bg-yellow-200 rounded flex items-center justify-center'>✌️</div>
                 <p className=' font-mono  pl-2'>#1</p>

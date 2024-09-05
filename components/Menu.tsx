@@ -70,23 +70,23 @@ const Menu: FC<Params> = ({ params, isDarkTheme }) => {
       <div className={`w-full  h-full ${isDarkTheme ? '   border-yellow-00' : ' text-black'}    rounded-s-lg flex flex-col justify-between  p-5 pb-0  `}>
         <div className='w-full h-auto '>
           <Link href={`/home/${params.uid}`}>
-        <div className={`w-full h-9  rounded flex items-center  ml-1 mr-0  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
-          <div className={`w-6 h-6 rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : ' '}`}>
+        <div className={`w-full h-9  rounded flex items-center  ml-1 mr-0  ${isDarkTheme ? 'hover:bg-green-300  hover:text-black ' : 'hover:bg-slate-100 '}`}>
+          <div className={`w-6 h-6 rounded flex items-center justify-center ${isDarkTheme ? 'bg-green-300 text-black ' : ' '}`}>
             <img className={`${isDarkTheme ? 'w-3 h-3 ' : ' w-5 h-5 '}`} src='https://static.thenounproject.com/png/423483-200.png' alt='' />
           </div>
           <p className='text-sm font-medium pl-1'>Home</p>
         </div>
         </Link>
 
-          <div className={`w-full h-9 rounded flex items-center justify-between mt-1  pr-4  ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '}`}>
+          <div className={`w-full h-9 rounded flex items-center justify-between mt-1  pr-4  ${isDarkTheme ? 'hover:bg-green-300  hover:text-black ' : 'hover:bg-slate-100 '}`}>
             <div className='w-auto h-auto  flex items-center pl-1'>
-                <div className={`w-6 h-6  rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : ' '}`}>
+                <div className={`w-6 h-6  rounded flex items-center justify-center ${isDarkTheme ? 'bg-green-300 text-black ' : ' '}`}>
                   <p >               <img className={`${isDarkTheme ? 'w-3 h-3 ' : ' w-5 h-5 '}`} src='https://cdn-icons-png.freepik.com/512/4305/4305337.png' alt='' /></p>
 
                 </div>
               <p className='text-sm font-medium pl-1'>My wishlists</p>
             </div>
-            <button onClick={()=> setIsHide(!isHide)} className={`w-6 h-6  rounded ${isDarkTheme ? 'hover:bg-yellow-300 ' : 'hover:bg-slate-100 '} `}>
+            <button onClick={()=> setIsHide(!isHide)} className={`w-6 h-6  rounded ${isDarkTheme ? 'hover:bg-green-300 ' : 'hover:bg-slate-100 '} `}>
             {
             isHide ? (
               <p className='text-sm'>	&uarr;</p>
@@ -123,8 +123,8 @@ const Menu: FC<Params> = ({ params, isDarkTheme }) => {
      }
      
 
-        <div onClick={toggleCreateWishlist} className={`w-full h-9   rounded flex items-center  ml-0 mr-0 mt-2  pl-1 ${isDarkTheme ? 'hover:bg-yellow-200  hover:text-black ' : 'hover:bg-slate-100 '} `}>
-          <div className={`w-6 h-6  rounded flex items-center justify-center ${isDarkTheme ? 'bg-yellow-200 text-black ' : 'bg-slate-100 '}`}>
+        <div onClick={toggleCreateWishlist} className={`w-full h-9   rounded flex items-center  ml-0 mr-0 mt-2  pl-1 ${isDarkTheme ? 'hover:bg-green-300  hover:text-black ' : 'hover:bg-slate-100 '} `}>
+          <div className={`w-6 h-6  rounded flex items-center justify-center ${isDarkTheme ? 'bg-green-300 text-black ' : 'bg-slate-100 '}`}>
             <p className='text-mini'>+</p>
           </div>
           <p className='text-sm font-medium pl-1'>New wishlist</p>

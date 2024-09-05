@@ -50,7 +50,7 @@ const UserCard:FC<UserCardData> = ({ toggleTheme, isDarkTheme}) => {
       {
          user &&     <>
         <p className='text-sm font-medium mr-3'>{user?.displayName}</p>
-        <div className='w-6 h-6 bg-yellow rounded flex items-center justify-center'>
+        <div className='w-6 h-6 bg-green-400 rounded flex items-center justify-center'>
             <p className='text-mini  font-medium '>{user?.displayName.slice(0, 1)}</p>
         </div>
 
