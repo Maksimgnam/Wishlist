@@ -7,6 +7,7 @@ import Image from 'next/image';
 import ViewNote from './ViewNote';
 import useStore from '@/store/store';
 import Link from 'next/link';
+import ViewMenuBar from './ViewMenuBar';
 
 const View:FC<ViewParams> = ({params}) => {
     const [viewWishes, setViewWishes] = useState<viewWishListData | null>(null)
@@ -94,7 +95,7 @@ const View:FC<ViewParams> = ({params}) => {
               <p className='text-3xl'>🎁</p>
               <h2 className='sm:text-2xl text-lg text-red-500 font-medium  mb-1 pl-2'>{viewWishes?.title}<span className='text-black'>{`'s wishes`}</span></h2>
             </div>
-            <div className='w-auto h-auto flex items-center'>
+            <div className='w-auto h-auto sm:flex hidden items-center'>
             <div className='w-14 h-auto flex justify-between mr-2'>
               <button onClick={()=>{
                 setIsSticker(true)
@@ -118,25 +119,30 @@ const View:FC<ViewParams> = ({params}) => {
               </button>
 
             </div>
+            <button  className={`w-9 h-9   rounded-md lg:hidden flex flex-wrap items-center justify-between p-1.5 bg-green-300`}>
+            <div className={`w-full h-line bg-black  rounded-md`}></div>
+            <div className={`w-full h-line   bg-black  rounded-md`}></div>
+            <div className={`w-full h-line   bg-black rounded-md`}></div>
+          </button>
            
        
 
 
           </div>
 {
-  isSticker &&  <div className='w-full h-wish-container  flex justify-center  '>
+  isSticker &&  <div className='w-full h-wish-container  flex justify-center sm:overflow-y-hidden overflow-y-scroll  '>
   <div className='sm:w-11/12 w-full h-full flex  flex-wrap justify-center  mt-7'>
 
     {
       viewWishes?.wishes?.map((view)=>(
-        <Link key={view._id} href={`/view/${params.id}/${view.wishId}`}> 
-          <div key={view._id} className={`w-60 h-56 ${view.isBooked ? 'bg-green-300 border-none hover:shadow-none' : 'bg-gray-100 border text-black'}  rounded-xl hover:shadow-xl flex items-center justify-center m-3 `}>
+        <Link className='sm:w-auto w-full' key={view._id} href={`/view/${params.id}/${view.wishId}`}> 
+          <div key={view._id} className={`sm:w-60 w-full sm:h-56 h-72 ${view.isBooked ? 'bg-green-300 border-none hover:shadow-none' : 'bg-gray-100 border text-black'}  rounded-xl hover:shadow-xl flex items-center justify-center m-3 sm:ml-3 ml-0 `}>
             {
               view.isBooked ? (
-                <p className='text-2xl break-words'>booked</p>
+                <p className='sm:text-2xl text-4xl break-words'>Booked</p>
 
               ):(
-                <p className='text-2xl break-words'>{view.title}</p>
+                <p className='sm:text-2xl text-4xl break-words'>{view.title}</p>
 
               )
             }
@@ -170,6 +176,10 @@ const View:FC<ViewParams> = ({params}) => {
           {
             isViewNote &&     <ViewNote description={viewWishes?.description}/>
           }
+
+
+
+     
     
        
 
@@ -183,6 +193,7 @@ const View:FC<ViewParams> = ({params}) => {
       </div>
       )
     }
+         <ViewMenuBar/>
 
 
     </>

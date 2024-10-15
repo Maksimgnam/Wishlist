@@ -51,9 +51,12 @@ const  WishContainer:FC<WishContainerData> = ({params, wishes, isFilter, setIsFi
 
 
         </div>
-        <input type="text" value={searchWish} onChange={(e)=> setSearchWish(e.target.value)} placeholder='Search...' className='sm:w-48 w-40 h-8 bg-transparent   border rounded outline-none sm:ml-3 ml-0 pl-2'/>
-        <Link href={`/home/${params.uid}/wishes/${params.id}/createWish`}>
-          <button className='sm:w-28 w-7 h-7 text-black bg-green-400 text-sm bg-button rounded-md hover:shadow-2xl  flex items-center justify-center'>+ <span className='sm:flex hidden pl-2'>New wish</span> </button>
+        <input type="text" value={searchWish} onChange={(e)=> setSearchWish(e.target.value)} placeholder='Search...' className='sm:w-48 w-40 h-8 bg-transparent sm:flex hidden  border rounded outline-none sm:ml-3 ml-0 pl-2'/>
+        <Link className='sm:w-auto w-full' href={`/home/${params.uid}/wishes/${params.id}/createWish`}>
+          <button className='sm:w-28 w-full sm:h-7 h-12 text-black bg-green-400 text-sm bg-button rounded-md hover:shadow-2xl  flex items-center justify-center'><p className='sm:flex hidden pl-2'> + <span className='sm:flex hidden pl-2'>New wish</span></p>
+          
+          <p className='sm:hidden flex text-xl text-white'>Add new wish </p>
+           </button>
         </Link>
 
       </div>

@@ -71,7 +71,7 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children, params }) => {
       <div className={`w-full h-container flex border rounded-lg ${isDarkTheme ? 'bg-darkness-theme text-white  border-none' : 'bg-white text-black'}  `}>
         <Menu params={params} isDarkTheme={isDarkTheme} />
         <div className={`w-line h-full  ${isDarkTheme ? '' : 'bg-gray-50 '} `}></div>
-        <div className={`w-full lg:w-4/5  h-full   `}>
+        <div className={`w-full lg:w-4/5  h-full    `}>
           {children}
         </div>
       </div>

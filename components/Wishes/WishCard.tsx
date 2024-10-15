@@ -27,7 +27,7 @@ const WishCard:FC<WishCardData> = ({wish, onDelete, params}) => {
     }
   };
   return (
-    <div className='w-60 h-44 border rounded-md hover:shadow-lg flex flex-col items-center justify-between p-6 m-2  '>
+    <div className='sm:w-60 w-full h-44 border rounded-md hover:shadow-lg flex flex-col items-center justify-between p-6 m-2  '>
       <p className='text-xl  text-center  break-words'>
     {wish.title}
  
