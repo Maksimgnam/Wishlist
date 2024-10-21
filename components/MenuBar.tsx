@@ -136,7 +136,7 @@ const MenuBar:FC<MenuBarData> = ({isDarkTheme, params}) => {
                 wishlists.length > 0  ? (
                     wishlists.map((wishlist: WishListData) => (
     
-                      <div  className={`w-full h-12 hover:bg-green-300 rounded flex items-center justify-between   pl-1 pr-5  ${isDarkTheme ? 'hover:bg-green-300  hover:text-black ' : 'hover:bg-slate-100 '}`}>
+                      <div  className={`w-full h-12 hover:bg-green-400 rounded flex items-center justify-between   pl-1 pr-5  ${isDarkTheme ? 'hover:bg-green-300  hover:text-black ' : 'hover:bg-slate-100 '}`}>
      
                       <Link onClick={closeMenuBar}  className='w-10/12'  key={wishlist._id} href={`/home/${params.uid}/wishes/${wishlist._id}`}>
                          <li className='text-xl pl-1 '>{wishlist.title}</li>
