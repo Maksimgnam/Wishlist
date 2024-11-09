@@ -199,7 +199,7 @@ const SignUp: FC<Auth> = ({ isChange }) => {
                 placeholder='Enter verification code'
               />
             </div>
-            <button onClick={verifyCode} className='w-full h-12 rounded bg-yellow'>
+            <button onClick={verifyCode} className='w-full h-12 rounded bg-green-400'>
               <p className='text-lg text-white font-medium'>Verify Code</p>
             </button>
           </div>
